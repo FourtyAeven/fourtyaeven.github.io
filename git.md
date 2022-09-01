@@ -21,3 +21,12 @@ git commit -m "第一次提交"   提交到 版本库
 git log 查看版本记录
 
 git status 查看当前版本库的状态
+
+git restore file 撤销工作区修改
+git restore --staged file 撤销暂存区修改
+
+版本回退
+git reset --hard HEAD^
+git reset --hard xxxyyyzzz
+
+gir reflog
