@@ -1,0 +1,120 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li,
+body {
+  margin: 0;
+  padding: 0;
+}
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.resume {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+.resume .resume_left {
+  width: 50%;
+  height: 100%;
+  background-image: url('修狗.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.resume .resume_left::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(4, 4, 10, 0.73);
+}
+.resume .resume_left .resume_left_info {
+  margin: auto;
+}
+.resume .resume_left .resume_left_info .resume_left_I {
+  position: relative;
+  z-index: 2;
+  font-size: 45px;
+  color: white;
+}
+.resume .resume_left .resume_left_info .resume_left_I::after {
+  content: ' |';
+  font-weight: 100;
+  animation: blink 1s linear infinite;
+}
+@keyframes blink {
+  from {
+    content: '|';
+  }
+  to {
+    content: '';
+  }
+}
+.resume .resume_left .resume_left_info .btn {
+  position: relative;
+  z-index: 2;
+  margin-top: 30px;
+}
+.resume .resume_left .resume_left_info .btn a {
+  padding: 15px 20px;
+  font-size: 20px;
+  color: white;
+  display: inline-block;
+  border: 2px solid white;
+  margin: 20px;
+}
+.resume .resume_right {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  text-align: center;
+}
+.resume .resume_right .resume_right_info {
+  margin: auto;
+}
+.resume .resume_right .resume_right_info img.myhead {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+}
+.resume .resume_right .resume_right_info h1.myname {
+  font-size: 20px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+.resume .resume_right .resume_right_info .connect_icon {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.resume .resume_right .resume_right_info .connect_icon i.fa {
+  font-size: 20px;
+}
+.resume .resume_right .resume_right_info ul.nav {
+  margin-bottom: 10px;
+}
+.resume .resume_right .resume_right_info ul.nav li a {
+  font-weight: bold;
+  padding: 5px 0;
+  line-height: 32px;
+  font-size: 12px;
+}
+/*# sourceMappingURL=./index.css.map */

@@ -1,0 +1,151 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.resume {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+
+    .resume_left {
+        width: 50%;
+        height: 100%;
+        // background-color: rgba(4, 4, 10, 0.73);
+        background-image: url('./修狗.jpg');
+        background-size: cover;
+        background-position: center;
+
+        position: relative;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(4, 4, 10, 0.73);
+        }
+
+        .resume_left_info {
+            margin: auto;
+
+            .resume_left_I {
+                // width: 100%;
+                position: relative;
+
+                z-index: 2;
+                font-size: 45px;
+                color: white;
+
+                // margin: auto;
+
+                &::after {
+                    content: ' |';
+                    font-weight: 100;
+
+                    @keyframes blink {
+                        from {
+                            // opacity: 1;
+                            content: '|';
+                        }
+
+                        to {
+                            // opacity: 0;
+                            content: '';
+                        }
+                    }
+
+                    animation: blink 1s linear infinite;
+                }
+            }
+            .btn{
+                position: relative;
+                z-index: 2;
+                margin-top: 30px;
+                a{
+                    padding: 15px 20px;
+                    font-size: 20px;
+                    color: white;
+                    display: inline-block;
+                    border: 2px solid white;
+                    margin: 20px;
+                }
+            }
+        }
+    }
+
+    .resume_right {
+        display: flex;
+        width: 50%;
+        height: 100%;
+        text-align: center;
+
+        .resume_right_info {
+            margin: auto;
+
+            img.myhead {
+                width: 140px;
+                height: 140px;
+                border-radius: 50%;
+            }
+
+            h1.myname {
+                font-size: 20px;
+                margin-top: 30px;
+                margin-bottom: 20px;
+                font-weight: bold;
+            }
+
+            .connect_icon {
+                margin-bottom: 30px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                i.fa {
+                    font-size: 20px;
+                    // margin-left: 15px;
+                }
+            }
+
+            ul.nav {
+                margin-bottom: 10px;
+
+                li {
+                    a {
+                        // color: black;
+                        font-weight: bold;
+                        // text-decoration: none;
+                        padding: 5px 0;
+                        line-height: 32px;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+}
