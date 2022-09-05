@@ -12,6 +12,7 @@ body {
     padding: 0;
 }
 
+
 ul,
 li {
     list-style: none;
@@ -40,6 +41,8 @@ a {
         display: flex;
         justify-content: center;
 
+        transition: all 0.6s;
+
         &::before {
             content: '';
             position: absolute;
@@ -53,15 +56,23 @@ a {
         .resume_left_info {
             margin: auto;
 
+            position: relative;
+
             .resume_left_I {
                 // width: 100%;
-                position: relative;
+                text-align: left;
+                margin-left: 20px;
 
                 z-index: 2;
                 font-size: 45px;
                 color: white;
 
                 // margin: auto;
+                margin-bottom: 40px;
+
+                span {
+                    color: #47A3DA;
+                }
 
                 &::after {
                     content: ' |';
@@ -82,11 +93,33 @@ a {
                     animation: blink 1s linear infinite;
                 }
             }
-            .btn{
+
+            .resume_left_item {
+                text-align: left;
+                margin-left: 20px;
+
+                span.item_title {
+                    display: inline-block;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                    margin-right: 5px;
+                    color: white;
+                    line-height: 2;
+                }
+
+                span.item_info {
+                    color: rgba(238, 238, 238, 0.84);
+                    line-height: 2;
+
+                }
+            }
+
+            .btn {
                 position: relative;
                 z-index: 2;
                 margin-top: 30px;
-                a{
+
+                a {
                     padding: 15px 20px;
                     font-size: 20px;
                     color: white;
@@ -104,6 +137,8 @@ a {
         height: 100%;
         text-align: center;
 
+        transition: all 0.6s;
+
         .resume_right_info {
             margin: auto;
 
@@ -116,18 +151,21 @@ a {
             h1.myname {
                 font-size: 20px;
                 margin-top: 30px;
-                margin-bottom: 20px;
+                margin-bottom: 25px;
                 font-weight: bold;
+                color: #151515;
+                font-weight: 700;
             }
 
             .connect_icon {
+                font-size: 13px;
                 margin-bottom: 30px;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
 
                 i.fa {
-                    font-size: 20px;
+                    // font-size: 20px;
                     // margin-left: 15px;
                 }
             }
@@ -136,14 +174,24 @@ a {
                 margin-bottom: 10px;
 
                 li {
-                    a {
-                        // color: black;
-                        font-weight: bold;
-                        // text-decoration: none;
-                        padding: 5px 0;
-                        line-height: 32px;
-                        font-size: 12px;
+
+                    // color: black;
+                    font-weight: bold;
+                    // text-decoration: none;
+                    padding: 5px 0;
+                    line-height: 32px;
+                    font-size: 12px;
+                    transition: all 0.3s;
+
+                    &:hover {
+                        color: #47A3DA;
                     }
+
+
+                }
+
+                li.active {
+                    color: #47A3DA;
                 }
             }
         }

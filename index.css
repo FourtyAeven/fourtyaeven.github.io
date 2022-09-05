@@ -34,6 +34,7 @@ a {
   text-align: center;
   display: flex;
   justify-content: center;
+  transition: all 0.6s;
 }
 .resume .resume_left::before {
   content: '';
@@ -46,12 +47,18 @@ a {
 }
 .resume .resume_left .resume_left_info {
   margin: auto;
+  position: relative;
 }
 .resume .resume_left .resume_left_info .resume_left_I {
-  position: relative;
+  text-align: left;
+  margin-left: 20px;
   z-index: 2;
   font-size: 45px;
   color: white;
+  margin-bottom: 40px;
+}
+.resume .resume_left .resume_left_info .resume_left_I span {
+  color: #47A3DA;
 }
 .resume .resume_left .resume_left_info .resume_left_I::after {
   content: ' |';
@@ -65,6 +72,22 @@ a {
   to {
     content: '';
   }
+}
+.resume .resume_left .resume_left_info .resume_left_item {
+  text-align: left;
+  margin-left: 20px;
+}
+.resume .resume_left .resume_left_info .resume_left_item span.item_title {
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  color: white;
+  line-height: 2;
+}
+.resume .resume_left .resume_left_info .resume_left_item span.item_info {
+  color: rgba(238, 238, 238, 0.84);
+  line-height: 2;
 }
 .resume .resume_left .resume_left_info .btn {
   position: relative;
@@ -84,6 +107,7 @@ a {
   width: 50%;
   height: 100%;
   text-align: center;
+  transition: all 0.6s;
 }
 .resume .resume_right .resume_right_info {
   margin: auto;
@@ -96,25 +120,32 @@ a {
 .resume .resume_right .resume_right_info h1.myname {
   font-size: 20px;
   margin-top: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   font-weight: bold;
+  color: #151515;
+  font-weight: 700;
 }
 .resume .resume_right .resume_right_info .connect_icon {
+  font-size: 13px;
   margin-bottom: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.resume .resume_right .resume_right_info .connect_icon i.fa {
-  font-size: 20px;
-}
 .resume .resume_right .resume_right_info ul.nav {
   margin-bottom: 10px;
 }
-.resume .resume_right .resume_right_info ul.nav li a {
+.resume .resume_right .resume_right_info ul.nav li {
   font-weight: bold;
   padding: 5px 0;
   line-height: 32px;
   font-size: 12px;
+  transition: all 0.3s;
+}
+.resume .resume_right .resume_right_info ul.nav li:hover {
+  color: #47A3DA;
+}
+.resume .resume_right .resume_right_info ul.nav li.active {
+  color: #47A3DA;
 }
 /*# sourceMappingURL=./index.css.map */
