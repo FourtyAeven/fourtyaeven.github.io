@@ -3,6 +3,7 @@ var $resume_left_info = $('.resume_left_info')
 var $resume_right = $('.resume_right')
 var $resume_left = $('.resume_left')
 var $demo = $('.demo')
+var $demo_a = $('.demo a')
 
 $nav_li.click(function(e){
     $(this).addClass('active').siblings().removeClass('active')
@@ -19,8 +20,12 @@ $nav_li.click(function(e){
             'width':'50%',
         })
         $demo.css({
+            'transform': "translate(100%)",
             'opacity':'0',
-            'width':'0%',
+            'width':'40%',
+        })
+        $demo_a.css({
+            'display':'none',
         })
         setTimeout(() => {
             $resume_left.css({
@@ -31,6 +36,15 @@ $nav_li.click(function(e){
                 'width':'50%',
                 'transform': "translate(0%)",
             })
+            $demo.css({
+                'transform': "translate(0%)",
+                'opacity':'0',
+                'width':'0%',
+                
+            })
+            $demo_a.css({
+                'display':'inline',
+            })
         }, 600);
     }else{
         $resume_left.css({
@@ -38,13 +52,13 @@ $nav_li.click(function(e){
         })
         $resume_right.css({
             'opacity':'0',
-            'margin-left':'-20%',
-            'width':'30%',
+            'margin-left':'-30%',
+            'width':'20%',
         })
         $demo.css({
-            'transform': "translateX(100%)",
+            'transform': "translate(100%)",
             'opacity':'0',
-            'width':'70%',
+            'width':'80%',
         })
         setTimeout(function() {
             $resume_left.css({
@@ -52,11 +66,11 @@ $nav_li.click(function(e){
             })
             $resume_right.css({
                 'margin-left':'0%',
-                'width':'30%',
+                'width':'20%',
                 'opacity':'1',
             })
             $demo.css({
-                'transform': "translateX(0%)",
+                'transform': "translate(0%)",
                 'opacity':'1',
             })
         }, 600);

@@ -37,9 +37,9 @@ a {
         width: 50%;
         height: 100%;
         // background-color: rgba(4, 4, 10, 0.73);
-        background-image: url('./修狗.jpg');
-        background-size: cover;
-        background-position: center;
+        // background: url('./img/柔光雪景.mp4');
+        // background-size: cover;
+        // background-position: center;
 
         position: relative;
         text-align: center;
@@ -48,16 +48,23 @@ a {
 
         transition: all 0.6s;
         user-select: none;
-        &::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background-color: rgba(4, 4, 10, 0.73);
-        }
 
+        overflow: hidden;
+        // &::before {
+        //     content: '';
+        //     position: absolute;
+        //     width: 100%;
+        //     height: 100%;
+        //     top: 0;
+        //     left: 0;
+        //     background-color: rgba(4, 4, 10, 0.73);
+        // }
+        video{
+            position: absolute;
+            // z-index: -1;
+            width: 200%;
+            // height: 100vh;
+        }
         .resume_left_info {
             margin: auto;
             position: relative;
@@ -75,7 +82,7 @@ a {
                 margin-bottom: 40px;
 
                 span {
-                    color: #47A3DA;
+                    color: #e8d2b8;
                 }
 
                 &::after {
@@ -85,12 +92,12 @@ a {
                     @keyframes blink {
                         from {
                             // opacity: 1;
-                            content: '|';
+                            content: ' |';
                         }
 
                         to {
                             // opacity: 0;
-                            content: '';
+                            content: ' ';
                         }
                     }
 
@@ -112,7 +119,7 @@ a {
                 }
 
                 span.item_info {
-                    color: rgba(238, 238, 238, 0.84);
+                    color: white;
                     line-height: 2;
 
                 }
@@ -142,7 +149,8 @@ a {
         text-align: center;
 
         transition: all 0.6s;
-
+        // box-sizing: border-box;
+        // border: 20px solid #e8d2b8;
         .resume_right_info {
             margin: auto;
             user-select: none;
@@ -150,6 +158,8 @@ a {
                 width: 140px;
                 height: 140px;
                 border-radius: 50%;
+                border: 15px solid #e8d2b8;
+                outline: 7.5px solid #393b3a;;
             }
 
             h1.myname {
@@ -157,7 +167,7 @@ a {
                 margin-top: 30px;
                 margin-bottom: 25px;
                 font-weight: bold;
-                color: #151515;
+                color: #e8d2b8;
                 font-weight: 700;
             }
 
@@ -188,14 +198,16 @@ a {
                     transition: all 0.3s;
                     user-select: none;
                     &:hover {
-                        color: #47A3DA;
+                        color: #e8d2b8;
+                        background-color: #393b3a;
                     }
 
 
                 }
 
                 li.active {
-                    color: #47A3DA;
+                    color: #e8d2b8;
+                    background-color: #393b3a;
                 }
             }
         }
@@ -203,7 +215,7 @@ a {
     .demo{
         width: 0%;
         height: 100%;
-        background-color: #393b3a;;
+        background-color: #393b3a;
         opacity: 0;
         transition: all 0.6s;
         // display: none;
@@ -211,7 +223,7 @@ a {
             display: flex;
             width: 100%;
             height: 30%;
-            justify-content: space-around;
+            justify-content: space-evenly;
             align-items: center;
             span{
                 text-align: center;
@@ -224,7 +236,7 @@ a {
                 color: #e8d2b8;
                 background: transparent;
                 transition: all 0.3s;
-                font-weight: b;
+                font-weight: bold;
                 &:hover{
                     background-color: #e8d2b8;
                     color: #393b3a;
@@ -233,12 +245,14 @@ a {
         }
         .demo_content{
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
+            flex-wrap: wrap;
             a.demo_item{
-
+                margin:15px 30px ;
                 width: 300px;
                 height: 150px;
                 position: relative;
+                transition: all 0.6s;
                 .item_img{
                     width: inherit;
                     height: inherit;
@@ -252,9 +266,19 @@ a {
                     position: absolute;
                     bottom: 0;
                     width: inherit;
+                    line-height: 2;
                     text-align: center;
                     color: #e8d2b8;
                     font-weight: bold;
+                    background-color: rgba(255, 255, 255, 0.1);
+                    transition: all 0.6s;
+                    &:hover{
+                        background-color: #e8d2b8;
+                        color: #393b3a;
+                    }
+                }
+                &:hover{
+                    transform: scale(1.2);
                 }
             }
         }
