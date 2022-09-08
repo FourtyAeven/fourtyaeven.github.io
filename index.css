@@ -11,6 +11,13 @@ body {
   margin: 0;
   padding: 0;
 }
+@font-face {
+  font-family: 'running_hand';
+  src: url('云峰静龙行书.ttf');
+}
+* {
+  font-family: running_hand;
+}
 body {
   overflow: hidden;
   user-select: none;
@@ -44,6 +51,7 @@ a {
   width: 200%;
 }
 .resume .resume_left .resume_left_info {
+  width: 300px;
   margin: auto;
   position: relative;
 }
@@ -77,28 +85,16 @@ a {
 }
 .resume .resume_left .resume_left_info .resume_left_item span.item_title {
   display: inline-block;
-  font-weight: bold;
+  font-size: 30px;
   margin-bottom: 10px;
   margin-right: 5px;
   color: white;
   line-height: 2;
 }
 .resume .resume_left .resume_left_info .resume_left_item span.item_info {
-  color: white;
+  color: #e8d2b8;
   line-height: 2;
-}
-.resume .resume_left .resume_left_info .btn {
-  position: relative;
-  z-index: 2;
-  margin-top: 30px;
-}
-.resume .resume_left .resume_left_info .btn a {
-  padding: 15px 20px;
-  font-size: 20px;
-  color: white;
-  display: inline-block;
-  border: 2px solid white;
-  margin: 20px;
+  font-size: 30px;
 }
 .resume .resume_right {
   display: flex;
@@ -119,15 +115,14 @@ a {
   outline: 7.5px solid #393b3a;
 }
 .resume .resume_right .resume_right_info h1.myname {
-  font-size: 20px;
+  font-size: 45px;
   margin-top: 30px;
   margin-bottom: 25px;
-  font-weight: bold;
   color: #e8d2b8;
-  font-weight: 700;
+  font-weight: 500;
 }
 .resume .resume_right .resume_right_info .connect_icon {
-  font-size: 13px;
+  font-size: 20px;
   margin-bottom: 30px;
   display: flex;
   justify-content: space-between;
@@ -137,10 +132,9 @@ a {
   margin-bottom: 10px;
 }
 .resume .resume_right .resume_right_info ul.nav li {
-  font-weight: bold;
-  padding: 5px 0;
+  padding: 20px 0;
   line-height: 32px;
-  font-size: 12px;
+  font-size: 30px;
   transition: all 0.3s;
   user-select: none;
 }
@@ -177,23 +171,35 @@ a {
   color: #e8d2b8;
   background: transparent;
   transition: all 0.3s;
-  font-weight: bold;
+  font-size: 30px;
 }
 .resume .demo .demo_nav span:hover {
   background-color: #e8d2b8;
   color: #393b3a;
 }
+.resume .demo .demo_nav .active {
+  background-color: #e8d2b8;
+  color: #393b3a;
+}
 .resume .demo .demo_content {
+  width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
+.resume .demo .demo_content .item {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 5px 0;
+}
 .resume .demo .demo_content a.demo_item {
-  margin: 15px 30px ;
   width: 300px;
   height: 150px;
   position: relative;
   transition: all 0.6s;
+  display: none;
+  border: 1px solid #e8d2b8;
 }
 .resume .demo .demo_content a.demo_item .item_img {
   width: inherit;
@@ -210,7 +216,6 @@ a {
   line-height: 2;
   text-align: center;
   color: #e8d2b8;
-  font-weight: bold;
   background-color: rgba(255, 255, 255, 0.1);
   transition: all 0.6s;
 }
@@ -219,6 +224,6 @@ a {
   color: #393b3a;
 }
 .resume .demo .demo_content a.demo_item:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 /*# sourceMappingURL=./index.css.map */

@@ -1,0 +1,407 @@
+@font-face {
+  font-family: 'running_hand';
+  src: url('云峰静龙行书.ttf');
+}
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  transform-style: preserve-3d;
+  background-color: #393b3a;
+  user-select: none;
+}
+body h1 {
+  width: 100%;
+  font-size: 80px;
+  color: #e8d2b8;
+  margin-top: 40px;
+  margin-bottom: 60px;
+  text-align: center;
+  letter-spacing: 10px;
+  font-family: running_hand;
+  font-weight: 500;
+}
+body .all_loader {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+body .all_loader .lo {
+  width: 200px;
+  height: 150px;
+  margin: 5px;
+  display: flex;
+}
+body .all_loader .loader_one_content {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #e8d2b8;
+  margin: auto;
+  position: relative;
+  animation: loader_one 1s ease-in-out infinite;
+}
+@keyframes loader_one {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+body .all_loader .loader_one_content::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  left: 19px;
+  background-color: #393b3a;
+}
+body .all_loader .loader_two_content {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: auto;
+  border: solid transparent 5px;
+  border-top: solid #e8d2b8 5px;
+  border-left: solid #e8d2b8 5px;
+  animation: loader_two 1s linear infinite;
+}
+@keyframes loader_two {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+body .all_loader .loader_three_content {
+  animation: loader_three_big 2s linear infinite;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  border-radius: 50%;
+  border: solid transparent 10px;
+  border-top: solid #e8d2b8 10px;
+  border-left: solid #e8d2b8 10px;
+  position: relative;
+}
+@keyframes loader_three_big {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+body .all_loader .loader_three_content::before {
+  animation: loader_three_small 1s linear infinite;
+  content: '';
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: solid transparent 10px;
+  border-top: solid #e8d2b8 10px;
+  border-left: solid #e8d2b8 10px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+@keyframes loader_three_small {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+body .all_loader .loader_three_content::after {
+  animation: loader_three_mid 1s linear infinite;
+  content: '';
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: solid transparent 10px;
+  border-top: solid #e8d2b8 10px;
+  border-left: solid #e8d2b8 10px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+@keyframes loader_three_mid {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+body .all_loader .loader_four_content {
+  width: 50px;
+  height: 10px;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+}
+body .all_loader .loader_four_content .four_dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #e8d2b8;
+  animation: loader_four 1s linear infinite;
+}
+@keyframes loader_four {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+body .all_loader .loader_four_content .four_dot:nth-child(2) {
+  animation-delay: 0.25s;
+}
+body .all_loader .loader_four_content .four_dot:nth-child(3) {
+  animation-delay: 0.5s;
+}
+body .all_loader .loader_five_content {
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 4px solid #e8d2b8;
+  position: relative;
+}
+body .all_loader .loader_five_content::before {
+  content: '';
+  width: 4px;
+  height: 42px;
+  border-radius: 2px;
+  background-color: #e8d2b8;
+  position: absolute;
+  top: 10px;
+  left: 48px;
+  transform-origin: 2px 40px;
+  animation: loader_five_long 2s linear infinite;
+}
+@keyframes loader_five_long {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+body .all_loader .loader_five_content::after {
+  content: '';
+  width: 4px;
+  height: 27px;
+  border-radius: 2px;
+  background-color: #e8d2b8;
+  position: absolute;
+  top: 25px;
+  left: 48px;
+  transform-origin: 2px 25px;
+  animation: loader_five_short 12s linear infinite;
+}
+@keyframes loader_five_short {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+body .all_loader .loader_six_content {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: auto;
+  position: relative;
+  animation: loader_six 1s linear infinite;
+}
+@keyframes loader_six {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+body .all_loader .loader_six_content::before {
+  content: "";
+  height: 15px;
+  width: 15px;
+  background-color: #e8d2b8;
+  position: absolute;
+  top: 0px;
+  left: 42px;
+  border-radius: 50%;
+}
+body .all_loader .loader_six_content::after {
+  content: "";
+  height: 15px;
+  width: 15px;
+  background-color: #e8d2b8;
+  opacity: 0.75;
+  position: absolute;
+  top: 5px;
+  left: 22px;
+  border-radius: 50%;
+}
+body .all_loader .loader_six_content span::before {
+  content: "";
+  height: 15px;
+  width: 15px;
+  background-color: #e8d2b8;
+  opacity: 0.5;
+  position: absolute;
+  top: 19px;
+  left: 7px;
+  border-radius: 50%;
+}
+body .all_loader .loader_six_content span::after {
+  content: "";
+  height: 15px;
+  width: 15px;
+  background-color: #e8d2b8;
+  opacity: 0.25;
+  position: absolute;
+  top: 38px;
+  left: 0px;
+  border-radius: 50%;
+}
+body .all_loader .loader_seven_content {
+  width: 150px;
+  height: 20px;
+  border-radius: 7px;
+  border: 2px solid #e8d2b8;
+  margin: auto;
+  position: relative;
+}
+body .all_loader .loader_seven_content::before {
+  content: '';
+  width: 146px;
+  height: 16px;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border-radius: 4px;
+  background-color: #e8d2b8;
+  animation: loader_seven_process 2s linear infinite;
+}
+@keyframes loader_seven_process {
+  0% {
+    width: 0;
+  }
+  75% {
+    width: 146px;
+  }
+  100% {
+    width: 146px;
+  }
+}
+body .all_loader .loader_seven_content::after {
+  content: "Loading...";
+  position: absolute;
+  width: 150px;
+  color: #e8d2b8;
+  top: -28px;
+  font-size: 14pt;
+  text-align: center;
+  animation: loader_seven_text 2s linear infinite;
+}
+@keyframes loader_seven_text {
+  0% {
+    content: "Loading";
+  }
+  25% {
+    content: "Loading.";
+  }
+  50% {
+    content: "Loading..";
+  }
+  75% {
+    content: "Loading...";
+  }
+  100% {
+    content: "Loading";
+  }
+}
+body .all_loader_3d {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e8d2b8;
+}
+body .all_loader_3d .eat_loading {
+  width: 200px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+body .all_loader_3d .eat_loading .num {
+  position: absolute;
+  bottom: 100%;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+  animation: numDown 3s ease-in infinite;
+  z-index: 2;
+}
+@keyframes numDown {
+  from {
+    transform: translateY(0) rotate(0) scale(1);
+  }
+  to {
+    transform: translateY(226.4px) rotate(360deg) scale(0);
+  }
+}
+body .all_loader_3d .eat_loading .n1 {
+  left: 30px;
+  animation-duration: 5s;
+  animation-delay: 1s;
+}
+body .all_loader_3d .eat_loading .n0 {
+  animation-delay: 2s;
+}
+body .all_loader_3d .eat_loading .n11 {
+  left: 120px;
+  animation-delay: 1s;
+}
+body .all_loader_3d .eat_loading .n00 {
+  left: 50px;
+  animation-delay: 2s;
+  animation-duration: 2s;
+}
+body .all_loader_3d .eat_loading .n111 {
+  left: 140px;
+  animation-duration: 5s;
+}
+body .all_loader_3d .eat_loading .n000 {
+  left: 70px;
+  animation-duration: 2s;
+  animation-delay: 3s;
+}
+body .all_loader_3d .eat_loading .eat {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: linear-gradient(gray, black);
+  transform: rotateX(60deg);
+  overflow: hidden;
+}
+/*# sourceMappingURL=./loading.css.map */

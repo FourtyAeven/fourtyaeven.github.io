@@ -1,0 +1,751 @@
+* {
+  font-family: 'Poppins';
+}
+body {
+  margin: 0;
+  background-color: #ffffff;
+}
+body .box .warpper {
+  width: 1100px;
+  margin: 0 auto;
+}
+body .box .header .header-top {
+  height: 48px;
+  background-color: #0c5d69;
+  overflow: hidden;
+}
+body .box .header .header-top .warpper .header-left {
+  float: left;
+  width: 70%;
+  overflow: hidden;
+  padding: 12.5px 0;
+}
+body .box .header .header-top .warpper .header-left li {
+  float: left;
+  color: #ffffff;
+  font-size: 13px;
+  margin-right: 25px;
+}
+body .box .header .header-top .warpper .header-left li i {
+  margin: 5px;
+}
+body .box .header .header-top .warpper .header-right {
+  width: 30%;
+  float: right;
+  padding: 13.6px 0;
+  text-align: right;
+}
+body .box .header .header-top .warpper .header-right div {
+  color: #ffffff;
+  margin-left: 20px;
+}
+body .box .header .header-bottom .warpper {
+  overflow: hidden;
+}
+body .box .header .header-bottom .warpper .log {
+  padding: 46px 0;
+  width: 20%;
+  float: left;
+}
+body .box .header .header-bottom .warpper .nav {
+  width: 80%;
+  overflow: hidden;
+  padding: 31.5px 0;
+  text-align: center;
+}
+body .box .header .header-bottom .warpper .nav > ul {
+  padding: 12px 0;
+  overflow: hidden;
+  float: left;
+  margin-left: 100px;
+}
+body .box .header .header-bottom .warpper .nav > ul > li {
+  float: left;
+  margin-right: 45px;
+  padding: 4px 0;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  position: relative;
+  font-weight: 500;
+  font-size: 15px;
+}
+body .box .header .header-bottom .warpper .nav > ul > li:nth-child(1) {
+  border-bottom: 2px solid #13a2b7;
+}
+body .box .header .header-bottom .warpper .nav > ul > li:nth-child(6) {
+  margin: 0;
+}
+body .box .header .header-bottom .warpper .nav > ul > li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  border-bottom: 2px solid #009688;
+  /*设置底部边颜色*/
+  width: 0;
+  /*宽度为0，这里的宽度是相对与li的宽度*/
+  height: 100%;
+  /*设置高度使它和li等高*/
+  transform: translateX(-50%);
+  transition: 0.3s;
+}
+body .box .header .header-bottom .warpper .nav > ul > li:hover::after {
+  width: 100%;
+  transition: 0.3s;
+  /*设置过度时间*/
+  transition-delay: 0.1s;
+  /*过度延时*/
+}
+body .box .header .header-bottom .warpper .nav .btn {
+  float: right;
+  border: 2px solid #13a2b7;
+  padding: 12px 30px;
+  border-radius: 5px;
+}
+body .box .header .header-bottom .warpper .nav .btn a {
+  text-decoration: none;
+  color: #111111;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+body .box .home {
+  background-image: url(../img/hero-bg.jpg);
+  background-size: cover;
+}
+body .box .home .warpper {
+  padding-top: 145px;
+  padding-bottom: 215px;
+}
+body .box .home .warpper .content {
+  width: 50%;
+}
+body .box .home .warpper .content span {
+  font-size: 15px;
+  color: #13a2b7;
+}
+body .box .home .warpper .content h2 {
+  margin-top: 10px;
+  margin-bottom: 35px;
+  font-size: 48px;
+  font-weight: bold;
+}
+body .box .home .warpper .content .btn {
+  display: inline-block;
+  background-color: #13a2b7;
+  color: #ffffff;
+  padding: 12px 30px;
+  border-radius: 5px;
+}
+body .box .consultation .warpper .card {
+  margin-right: 15px;
+  padding: 50px;
+  margin-top: -90px;
+  background-color: #ffffff;
+  width: calc(33.33% - 100px);
+  box-shadow: 0 0 15px 0px rgba(44, 43, 43, 0.3);
+  border-radius: 5px;
+  float: left;
+}
+body .box .consultation .warpper .card .title {
+  width: 100%;
+  display: inline-block;
+  margin-bottom: 35px;
+}
+body .box .consultation .warpper .card .title span {
+  color: #888888;
+  font-size: 15px;
+  font-weight: bold;
+}
+body .box .consultation .warpper .card .title h2 {
+  margin-top: 8px;
+  font-size: 36px;
+  font-weight: 700;
+}
+body .box .consultation .warpper .card form {
+  width: 100%;
+  display: inline-block;
+}
+body .box .consultation .warpper .card form input {
+  width: calc(100% - 24px);
+  padding: 1px 2px 1px 20px;
+  margin-bottom: 20px;
+  border: 1px solid #f2f2f2;
+  border-radius: 5px;
+  font-size: 15px;
+  height: 46px;
+  outline-color: #9d9d9d;
+}
+body .box .consultation .warpper .card form select {
+  width: 100%;
+  margin-bottom: 20px;
+  padding-right: 30px;
+  padding-left: 20px;
+  border: 1px solid #f2f2f2;
+  border-radius: 5px;
+  height: 50px;
+}
+body .box .consultation .warpper .card form select option {
+  font-size: 15px;
+}
+body .box .consultation .warpper .card form select option:hover {
+  background-color: #666666;
+}
+body .box .consultation .warpper .card form .btn {
+  width: calc(100% - 60px);
+  padding: 12px 30px;
+  background-color: #13a2b7;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 5px;
+  text-align: center;
+}
+body .box .consultation .warpper .info {
+  width: calc(66.66 - 15px);
+  padding: 100px 0;
+  overflow: hidden;
+  border-bottom: 2px solid #f2f2f2;
+  box-sizing: border-box;
+}
+body .box .consultation .warpper .info .info-left {
+  width: calc(50% - 30px);
+  display: inline-block;
+  padding: 0 15px;
+}
+body .box .consultation .warpper .info .info-left span {
+  font-size: 15px;
+  color: #888888;
+}
+body .box .consultation .warpper .info .info-left h2 {
+  margin-top: 8px;
+  font-size: 36px;
+  color: #111111;
+  font-weight: 700;
+}
+body .box .consultation .warpper .info .info-left h2 b {
+  color: #13a2b7;
+}
+body .box .consultation .warpper .info .info-left p {
+  font-size: 15px;
+  color: #444444;
+  font-weight: 400;
+}
+body .box .consultation .warpper .info .info-right {
+  width: calc(50% - 30px);
+  background-image: url(../img/consultation-video.jpg);
+  padding: 0 15px;
+  float: right;
+  text-align: center;
+  height: 256.8px;
+  background-size: cover;
+}
+body .box .consultation .warpper .info .info-right .play-btn {
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  background-color: #13a2b7;
+  border-radius: 50%;
+  text-align: center;
+  margin: calc(50% - 62.5px) calc(50% - 25px);
+}
+body .box .consultation .warpper .info .info-right .play-btn i {
+  color: #ffffff;
+}
+body .box .choose {
+  margin: 50px 0;
+}
+body .box .choose .warpper .title .warpper-head {
+  text-align: center;
+  padding: 0 15px;
+  margin-bottom: 45px;
+}
+body .box .choose .warpper .title .warpper-head span {
+  color: #888888;
+  font-size: 15px;
+}
+body .box .choose .warpper .title .warpper-head h2 {
+  font-size: 36px;
+  font-weight: bolder;
+  margin-top: 8px;
+}
+body .box .choose .warpper .content {
+  text-align: center;
+  overflow: hidden;
+}
+body .box .choose .warpper .content .card {
+  float: left;
+  padding: 0 15px;
+  width: calc(25% - 30px);
+}
+body .box .choose .warpper .content .card h5 {
+  font-size: 20px;
+  margin-top: 26px;
+  margin-bottom: 16px;
+}
+body .box .choose .warpper .content .card p {
+  font-size: 15px;
+  color: #666666;
+}
+body .box .service {
+  background-image: url(../img/services-bg.jpg);
+  padding: 50px 0;
+  background-size: cover;
+  background-position: center top;
+}
+body .box .service .warpper .header {
+  overflow: hidden;
+}
+body .box .service .warpper .header .title-left {
+  margin-bottom: 45px;
+  float: left;
+}
+body .box .service .warpper .header .title-left .first {
+  color: #13a2b7;
+  font-size: 15px;
+}
+body .box .service .warpper .header .title-left .second {
+  margin-top: 8px;
+  color: #ffffff;
+  font-size: 36px;
+}
+body .box .service .warpper .header .title-right {
+  overflow: hidden;
+  padding: 0 15px;
+}
+body .box .service .warpper .header .title-right .btn {
+  float: right;
+  padding: 12px 30px;
+  border: 2px solid #13a2b7;
+  border-radius: 5px;
+}
+body .box .service .warpper .header .title-right .btn a {
+  font-size: 15px;
+  color: #ffffff;
+}
+body .box .service .warpper .service-content {
+  overflow: hidden;
+}
+body .box .service .warpper .service-content .service-card {
+  width: calc(50% - 45px - 65px);
+  float: left;
+  padding: 45px 30px 45px 50px;
+  margin: 0 15px 30px 15px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  overflow: hidden;
+}
+body .box .service .warpper .service-content .service-card:hover {
+  color: #ffffff;
+  background-color: #13a2b7;
+}
+body .box .service .warpper .service-content .service-card:hover .info p:nth-child(2) {
+  color: #ffffff;
+}
+body .box .service .warpper .service-content .service-card .icon {
+  width: 70px;
+  height: 70px;
+  float: left;
+  margin-right: 45px;
+}
+body .box .service .warpper .service-content .service-card .info {
+  float: left;
+  width: 270px;
+}
+body .box .service .warpper .service-content .service-card .info p:nth-child(1) {
+  font-size: 20px;
+  margin-bottom: 14px;
+  font-weight: bolder;
+}
+body .box .service .warpper .service-content .service-card .info p:nth-child(2) {
+  font-size: 15px;
+  color: #666666;
+}
+body .box .team .warpper {
+  padding-top: 100px;
+  padding-bottom: 70px;
+}
+body .box .team .warpper .title {
+  margin-bottom: 45px;
+  text-align: center;
+}
+body .box .team .warpper .title .warpper-head span {
+  font-size: 15px;
+  color: #888888;
+}
+body .box .team .warpper .title .warpper-head h2 {
+  margin-top: 8px;
+  font-size: 36px;
+  color: #111111;
+  font-weight: bold;
+}
+body .box .team .warpper .team-content {
+  overflow: hidden;
+}
+body .box .team .warpper .team-content .team-card {
+  float: left;
+  text-align: center;
+  padding: 0 15px;
+  width: calc(33.33% - 30px);
+}
+body .box .team .warpper .team-content .team-card:hover img.team-member {
+  border: 10px solid #13a2b7;
+}
+body .box .team .warpper .team-content .team-card img.team-member {
+  border-radius: 50%;
+  border: 10px solid #ffffff;
+  box-shadow: 0 0 15px 0 rgba(44, 43, 43, 0.3);
+  margin-bottom: 30px;
+  transition: 0.5s;
+}
+body .box .team .warpper .team-content .team-card h5 {
+  font-size: 20px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+body .box .team .warpper .team-content .team-card p {
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #13a2b7;
+}
+body .box .team .warpper .team-content .team-card .icons i {
+  font-size: 15px;
+  margin-right: 20px;
+  color: #666666;
+}
+body .box .picture {
+  overflow: hidden;
+}
+body .box .picture ul.picture-left {
+  overflow: hidden;
+  width: 75%;
+  float: left;
+}
+body .box .picture ul.picture-left li {
+  float: left;
+  width: calc(33.33% - 20px);
+  height: 338px;
+  background-size: cover;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
+body .box .picture ul.picture-left li:nth-child(1) {
+  background-image: url(../img/gallery-1.jpg);
+}
+body .box .picture ul.picture-left li:nth-child(2) {
+  background-image: url(../img/gallery-2.jpg);
+}
+body .box .picture ul.picture-left li:nth-child(3) {
+  background-image: url(../img/gallery-3.jpg);
+}
+body .box .picture ul.picture-left li:nth-child(4) {
+  background-image: url(../img/gallery-5.jpg);
+}
+body .box .picture ul.picture-left li:nth-child(5) {
+  background-image: url(../img/gallery-6.jpg);
+}
+body .box .picture ul.picture-left li:nth-child(6) {
+  background-image: url(../img/gallery-7.jpg);
+}
+body .box .picture ul.picture-left li .mask {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #13a1b788;
+  opacity: 0;
+  transition: 0.5s;
+}
+body .box .picture ul.picture-left li .mask i {
+  display: none;
+}
+body .box .picture ul.picture-left li:hover {
+  background-color: #13a2b7;
+  z-index: 1;
+}
+body .box .picture ul.picture-left li:hover .mask {
+  opacity: 1;
+}
+body .box .picture ul.picture-left li:hover .mask i {
+  color: white;
+  position: absolute;
+  display: block;
+  top: calc(50% - 15px);
+  left: calc(50% - 14px);
+  font-size: 30px;
+}
+body .box .picture .picture-right {
+  background-image: url(../img/gallery-4.jpg);
+  float: right;
+  width: 25%;
+  height: 696px;
+  background-size: cover;
+  position: relative;
+}
+body .box .picture .picture-right .mask {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #13a1b788;
+  opacity: 0;
+  transition: 0.5s;
+}
+body .box .picture .picture-right .mask i {
+  display: none;
+}
+body .box .picture .picture-right:hover {
+  background-color: #13a2b7;
+  z-index: 1;
+}
+body .box .picture .picture-right:hover .mask {
+  opacity: 1;
+}
+body .box .picture .picture-right:hover .mask i {
+  color: white;
+  position: absolute;
+  display: block;
+  top: calc(50% - 15px);
+  left: calc(50% - 14px);
+  font-size: 30px;
+}
+body .box .news .warpper {
+  padding-top: 80px;
+  padding-bottom: 70px;
+}
+body .box .news .warpper .header {
+  overflow: hidden;
+}
+body .box .news .warpper .header .title-left {
+  margin-bottom: 45px;
+  width: 66.66%;
+  float: left;
+}
+body .box .news .warpper .header .title-left p.first {
+  font-size: 15px;
+  color: #888888;
+}
+body .box .news .warpper .header .title-left p.second {
+  margin-top: 8px;
+  font-size: 36px;
+  color: #111111;
+  font-weight: bold;
+}
+body .box .news .warpper .header .title-right {
+  width: 33.33%;
+  float: right;
+  overflow: hidden;
+}
+body .box .news .warpper .header .title-right .btn {
+  border: 2px solid #13a2b7;
+  float: right;
+  padding: 12px 30px;
+}
+body .box .news .warpper .header .title-right .btn a {
+  font-size: 15px;
+  color: #111111;
+  letter-spacing: 2px;
+}
+body .box .news .warpper .news-content {
+  overflow: hidden;
+  padding: 30px 0;
+}
+body .box .news .warpper .news-content .news-card {
+  width: calc(33.33% - 90px);
+  float: left;
+  margin: 0 15px 30px;
+  padding: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 0 15px 0 rgba(44, 43, 43, 0.1);
+  border-radius: 5px;
+}
+body .box .news .warpper .news-content .news-card h5 {
+  font-size: 18px;
+}
+body .box .news .warpper .news-content .news-card h5 a {
+  text-decoration: none;
+  color: #111111;
+  font-weight: bold;
+}
+body .box .news .warpper .news-content .news-card:hover {
+  box-shadow: 0 0 15px 0 rgba(44, 43, 43, 0.2);
+}
+body .box .news .warpper .news-content .news-card:hover h5 a {
+  text-decoration: underline;
+}
+body .box .news .warpper .news-content .news-card p {
+  margin-bottom: 15px;
+  color: #666666;
+  font-size: 15px;
+}
+body .box .news .warpper .news-content .news-card ul li.news-card-left {
+  margin-right: 22px;
+}
+body .box .news .warpper .news-content .news-card ul li.news-card-left img {
+  border-radius: 50%;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+body .box .news .warpper .news-content .news-card ul li {
+  font-size: 13px;
+  color: #888888;
+  display: inline-block;
+}
+body .box footer {
+  background-color: #121C1D;
+  color: #ffffff;
+  position: relative;
+}
+body .box footer .warpper .top {
+  width: 100%;
+  overflow: hidden;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-bottom: 65px;
+}
+body .box footer .warpper .top .logo {
+  width: calc(33.33% - 30px);
+  float: left;
+  padding: 0 15px;
+  height: 50px;
+}
+body .box footer .warpper .top .logo a {
+  line-height: 50px;
+  display: inline-block;
+}
+body .box footer .warpper .top form {
+  width: calc(33.33% - 30px - 30px);
+  float: left;
+  position: relative;
+  padding: 0 15px;
+}
+body .box footer .warpper .top form input {
+  font-size: 14px;
+  margin: 0px;
+  width: calc(100% - 30px - 4px);
+  height: 46px;
+  background-color: transparent;
+  color: #ffffff;
+  padding: 0 0 0 30px;
+  border-radius: 50px;
+  border: 2px solid #13a2b7;
+  outline: none;
+}
+body .box footer .warpper .top form input::-webkit-input-placeholder {
+  color: #ffffff;
+}
+body .box footer .warpper .top form button {
+  text-transform: uppercase;
+  font-size: 15px;
+  color: #ffffff;
+  background-color: #13a2b7;
+  position: absolute;
+  right: 15px;
+  top: 0px;
+  height: 50px;
+  border: none;
+  border-radius: 0 50px 50px 0;
+  padding: 12px 30px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+body .box footer .warpper .top .icons {
+  width: 33.33%;
+  float: right;
+  height: 50px;
+  text-align: right;
+}
+body .box footer .warpper .top .icons a {
+  display: inline-block;
+  line-height: 50px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 18px;
+  margin-left: 6px;
+}
+body .box footer .warpper .top .line {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #2a3334;
+  top: 130px;
+  right: 0;
+}
+body .box footer .warpper .nav {
+  overflow: hidden;
+}
+body .box footer .warpper .nav .menu {
+  width: 66.66%;
+  overflow: hidden;
+  float: left;
+}
+body .box footer .warpper .nav .menu .card {
+  width: calc(25% - 30px);
+  float: left;
+  padding: 0 15px;
+  margin-bottom: 30px;
+}
+body .box footer .warpper .nav .menu .card h5 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+body .box footer .warpper .nav .menu .card ul li {
+  font-size: 14px;
+  color: #C4C4C4;
+  line-height: 30px;
+}
+body .box footer .warpper .nav .menu .card ul li i {
+  font-size: 18px;
+  color: #13a2b7;
+  margin-right: 15px;
+}
+body .box footer .warpper .nav .menu .card:nth-child(3) {
+  width: 330px;
+}
+body .box footer .warpper .nav .menu .card:nth-child(3) ul li {
+  margin-bottom: 38px;
+  line-height: 21px;
+}
+body .box footer .warpper .nav .map {
+  width: 300px;
+  height: 250px;
+  float: right;
+}
+body .box footer .warpper .nav .map img {
+  width: 300px;
+  height: 250px;
+}
+body .box footer .warpper .copyright {
+  font-size: 14px;
+  color: #C4C4C4;
+  font-weight: 300;
+  overflow: hidden;
+  margin-top: 30px;
+  padding: 25px 0;
+}
+body .box footer .warpper .copyright p {
+  float: left;
+}
+body .box footer .warpper .copyright p i {
+  color: #13a2b7;
+}
+body .box footer .warpper .copyright p a {
+  text-decoration: none;
+  color: #13a2b7;
+}
+body .box footer .warpper .copyright ul {
+  overflow: hidden;
+  float: right;
+}
+body .box footer .warpper .copyright ul li {
+  list-style-type: disc;
+  float: left;
+  margin-left: 25px;
+}
+body .box footer .warpper .copyright ul li:nth-child(1) {
+  list-style: none;
+}
+/*# sourceMappingURL=./xxx.css.map */
