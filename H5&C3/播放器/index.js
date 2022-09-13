@@ -33,10 +33,9 @@ var songArr = [
 //初始歌曲
 var $music_info_title = $('.music_info_title');
 var $music_info_singer = $('.music_info_singer');
-// 歌单列表
-var $music_list_item = $('.music_list_item')
 
 function update(i, T) {
+    // console.log(songArr[i].title);
     $music_info_title.text(songArr[i].title);
     $music_info_singer.text(songArr[i].singer);
     $musicPic[0].src = songArr[i].src_img;
@@ -53,15 +52,18 @@ function update(i, T) {
 update(0, false);
 //点击下一首时
 var index = 0;
+// console.log(index);
 $nextbtn.click(function () {
-    if ($modebtn.hasClass('icon-liebiaoxunhuan') || $modebtn.hasClass('icon-danquxunhuan')){
+    // console.log(index);
+    if ($modebtn.hasClass('icon-liebiaoxunhuan') || $modebtn.hasClass('icon-danquxunhuan')) {
         index++;
+        // console.log(index);
         if (index > songArr.length - 1) {
             index = 0;
         }
         update(index, true);
-    }else{
-        var index =  Math.floor(Math.random() * songArr.length)
+    } else {
+        index = Math.floor(Math.random() * songArr.length);
         //0~songarr.length
         console.log(index);
         update(index, true);
@@ -69,14 +71,14 @@ $nextbtn.click(function () {
 });
 //点击上一首时
 $prebtn.click(function () {
-    if ($modebtn.hasClass('icon-liebiaoxunhuan') || $modebtn.hasClass('icon-danquxunhuan')){
+    if ($modebtn.hasClass('icon-liebiaoxunhuan') || $modebtn.hasClass('icon-danquxunhuan')) {
         index--;
         if (index < 0) {
             index = songArr.length - 1;
         }
         update(index, true);
-    }else{
-        var index =  Math.floor(Math.random() * songArr.length)
+    } else {
+        index = Math.floor(Math.random() * songArr.length);
         //0~songarr.length
         update(index, true);
     }
@@ -180,8 +182,8 @@ music.ontimeupdate = function () {
         } else if ($modebtn.hasClass('icon-danquxunhuan')) {
             //单曲循环
             music.play();
-        }else{
-            index =  Math.floor(Math.random() * songArr.length)
+        } else {
+            index = Math.floor(Math.random() * songArr.length);
             //0~songarr.length
             update(index, true);
         }

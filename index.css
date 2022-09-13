@@ -137,6 +137,7 @@ a {
   font-size: 30px;
   transition: all 0.3s;
   user-select: none;
+  margin: 5px;
 }
 .resume .resume_right .resume_right_info ul.nav li:hover {
   color: #e8d2b8;

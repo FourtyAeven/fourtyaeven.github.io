@@ -21,13 +21,12 @@ $nav_li.click(function (e) {
         });
         $resume_right.css({
             'opacity': '0',
-            'transform': "translate(10%)",
             'width': '50%',
         });
         $demo.css({
             'transform': "translate(100%)",
             'opacity': '0',
-            'width': '40%',
+            // 'width': '40%',
         });
         $demo_a.css({
             'display': 'none',
@@ -45,11 +44,7 @@ $nav_li.click(function (e) {
                 'transform': "translate(0%)",
                 'opacity': '0',
                 'width': '0%',
-
             });
-            // $demo_a.css({
-            //     'display':'block',
-            // })
         }, 600);
     } else {
         $resume_left.css({
@@ -57,16 +52,7 @@ $nav_li.click(function (e) {
         });
         $resume_right.css({
             'opacity': '0',
-            'margin-left': '-40%',
             'width': '20%',
-        });
-        $demo.css({
-            'transform': "translate(100%)",
-            'opacity': '0',
-            'width': '80%',
-        });
-        $demo_a.css({
-            'display': 'block',
         });
         setTimeout(function () {
             $resume_left.css({
@@ -80,6 +66,10 @@ $nav_li.click(function (e) {
             $demo.css({
                 'transform': "translate(0%)",
                 'opacity': '1',
+                'width': '80%',
+            });
+            $demo_a.css({
+                'display': 'block',
             });
         }, 600);
     }

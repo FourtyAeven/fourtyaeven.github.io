@@ -29,4 +29,6 @@ git restore --staged file 撤销暂存区修改
 git reset --hard HEAD^
 git reset --hard xxxyyyzzz
 
-gir reflog
+git reflog
+
+q 退出
