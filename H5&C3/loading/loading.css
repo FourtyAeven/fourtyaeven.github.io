@@ -343,6 +343,9 @@ body .all_loader_3d {
   align-items: center;
   background-color: #e8d2b8;
 }
+body .all_loader_3d .lo_3d {
+  margin: 5px;
+}
 body .all_loader_3d .eat_loading {
   width: 200px;
   height: 250px;
@@ -403,5 +406,62 @@ body .all_loader_3d .eat_loading .eat {
   background: linear-gradient(gray, black);
   transform: rotateX(60deg);
   overflow: hidden;
+}
+body .all_loader_3d .jump_loading {
+  width: 200px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+body .all_loader_3d .jump_loading .ball {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(-45deg, #393b3a, gray);
+  position: relative;
+  z-index: 2;
+  animation: ball_jump 1s linear infinite;
+}
+@keyframes ball_jump {
+  0% {
+    transform: translateY(0%);
+  }
+  25% {
+    transform: translateY(50px);
+    width: 60px;
+    height: 40px;
+  }
+  75% {
+    transform: translateY(-50px);
+    width: 40px;
+    height: 60px;
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+body .all_loader_3d .jump_loading .blur {
+  width: 50px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: white;
+  transform-origin: 50% 100%;
+  animation: blur_move 1s linear infinite;
+}
+@keyframes blur_move {
+  0% {
+    transform: translateY(-50px) scale(0.8);
+    opacity: 1;
+  }
+  90% {
+    transform: translateY(50px) scale(2);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(50px) scale(2);
+    opacity: 0;
+  }
 }
 /*# sourceMappingURL=./loading.css.map */

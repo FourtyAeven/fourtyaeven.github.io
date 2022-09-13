@@ -2,6 +2,7 @@
     font-family: 'running_hand';
     src: url('./云峰静龙行书.ttf');
 }
+
 body {
     margin: 0;
     padding: 0;
@@ -14,6 +15,7 @@ body {
     transform-style: preserve-3d;
     background-color: #393b3a;
     user-select: none;
+
     h1 {
         width: 100%;
         font-size: 80px;
@@ -23,7 +25,7 @@ body {
         text-align: center;
         letter-spacing: 10px;
         font-family: running_hand;
-        font-weight: 500;//最低500
+        font-weight: 500; //最低500
     }
 
     .all_loader {
@@ -31,6 +33,7 @@ body {
         justify-content: center;
         align-items: flex-start;
         flex-wrap: wrap;
+
         .lo {
             width: 200px;
             height: 150px;
@@ -315,15 +318,19 @@ body {
             border-radius: 50%;
             margin: auto;
             position: relative;
+
             @keyframes loader_six {
-                from{
+                from {
                     transform: rotate(0);
                 }
-                to{
+
+                to {
                     transform: rotate(360deg);
                 }
             }
+
             animation: loader_six 1s linear infinite;
+
             &::before {
                 content: "";
                 height: 15px;
@@ -334,7 +341,8 @@ body {
                 left: 42px;
                 border-radius: 50%;
             }
-            &::after{
+
+            &::after {
                 content: "";
                 height: 15px;
                 width: 15px;
@@ -344,10 +352,11 @@ body {
                 top: 5px;
                 left: 22px;
                 border-radius: 50%;
-                
+
             }
-            span{
-                &::before{
+
+            span {
+                &::before {
                     content: "";
                     height: 15px;
                     width: 15px;
@@ -358,7 +367,8 @@ body {
                     left: 7px;
                     border-radius: 50%;
                 }
-                &::after{
+
+                &::after {
                     content: "";
                     height: 15px;
                     width: 15px;
@@ -371,8 +381,8 @@ body {
                 }
             }
         }
-        
-        .loader_seven_content{
+
+        .loader_seven_content {
             width: 150px;
             height: 20px;
             border-radius: 7px;
@@ -380,7 +390,8 @@ body {
             margin: auto;
 
             position: relative;
-            &::before{
+
+            &::before {
                 content: '';
                 width: 146px;
                 height: 16px;
@@ -389,20 +400,25 @@ body {
                 left: 2px;
                 border-radius: 4px;
                 background-color: #e8d2b8;
+
                 @keyframes loader_seven_process {
-                    0%{
+                    0% {
                         width: 0;
                     }
-                    75%{
+
+                    75% {
                         width: 146px;
                     }
-                    100%{
+
+                    100% {
                         width: 146px;
                     }
                 }
+
                 animation: loader_seven_process 2s linear infinite;
             }
-            &::after{
+
+            &::after {
                 content: "Loading...";
                 position: absolute;
                 width: 150px;
@@ -410,34 +426,44 @@ body {
                 top: -28px;
                 font-size: 14pt;
                 text-align: center;
+
                 @keyframes loader_seven_text {
-                    0%{
+                    0% {
                         content: "Loading";
                     }
-                    25%{
+
+                    25% {
                         content: "Loading.";
                     }
-                    50%{
+
+                    50% {
                         content: "Loading..";
                     }
-                    75%{
+
+                    75% {
                         content: "Loading...";
                     }
-                    100%{
+
+                    100% {
                         content: "Loading";
                     }
                 }
+
                 animation: loader_seven_text 2s linear infinite;
             }
         }
     }
-    .all_loader_3d{
+
+    .all_loader_3d {
         width: 100%;
         height: 300px;
         display: flex;
         justify-content: center;
         align-items: center;
         background-color: #e8d2b8;
+        .lo_3d{
+            margin: 5px;
+        }
         .eat_loading {
             width: 200px;
             height: 250px;
@@ -446,16 +472,18 @@ body {
             align-items: flex-end;
             position: relative;
             overflow: hidden;
-            .num{
+
+            .num {
                 @keyframes numDown {
                     from {
                         transform: translateY(0) rotate(0) scale(1);
                     }
-        
+
                     to {
                         transform: translateY(226.4px) rotate(360deg) scale(0);
                     }
                 }
+
                 position: absolute;
                 bottom: 100%;
                 font-size: 40px;
@@ -465,32 +493,39 @@ body {
                 animation: numDown 3s ease-in infinite;
                 z-index: 2;
             }
-            .n1{
+
+            .n1 {
                 left: 30px;
                 animation-duration: 5s;
                 animation-delay: 1s;
             }
-            .n0{
+
+            .n0 {
                 animation-delay: 2s;
             }
-            .n11{
+
+            .n11 {
                 left: 120px;
                 animation-delay: 1s;
             }
-            .n00{
+
+            .n00 {
                 left: 50px;
                 animation-delay: 2s;
                 animation-duration: 2s;
             }
-            .n111{
+
+            .n111 {
                 left: 140px;
                 animation-duration: 5s;
             }
-            .n000{
+
+            .n000 {
                 left: 70px;
                 animation-duration: 2s;
                 animation-delay: 3s;
             }
+
             .eat {
                 width: 150px;
                 height: 150px;
@@ -498,6 +533,74 @@ body {
                 background: linear-gradient(gray, black);
                 transform: rotateX(60deg);
                 overflow: hidden;
+            }
+        }
+
+        .jump_loading {
+            width: 200px;
+            height: 250px;
+            // background-color: #393b3a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            // transform-style: preserve-3d;
+            .ball{
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                // background-color: #393b3a;
+                background: linear-gradient(-45deg,#393b3a, gray);
+                position: relative;
+                z-index: 2;
+                @keyframes ball_jump {
+                    0%{
+                        transform: translateY(0%);
+                    }
+                    25%{
+                        transform: translateY(50px);
+                        width: 60px;
+                        height: 40px;
+                    }
+                    75%{
+                        transform: translateY(-50px);
+                        width: 40px;
+                        height: 60px;
+                    }
+                    100%{
+                        transform: translateY(0);
+                    }
+                }
+                animation: ball_jump 1s linear infinite;
+            }
+            .blur{
+
+                width: 50px;
+                height: 10px;
+                border-radius: 5px;
+                background-color: white;
+                transform-origin: 50% 100%;
+                @keyframes blur_move {
+                    0%{
+                        transform: translateY(-50px) scale(0.8);
+                        // transform: rotateX(-90deg);
+                        opacity: 1;
+                    }
+                    90%{
+                        transform: translateY(50px) scale(2);
+                        // transform: rotateX(0deg);
+                        opacity: 1;
+                    }
+                    100%{
+                        transform: translateY(50px) scale(2);
+                        opacity: 0;
+                    }
+                    // 100%{
+                    //     transform: translateY(-50px) scale(3);
+                    //     // transform: rotateX(90deg);
+                    // }
+                }
+                animation: blur_move 1s linear infinite;
             }
         }
     }

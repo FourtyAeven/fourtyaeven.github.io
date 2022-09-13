@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./font_k7xujpuq9/iconfont.css">
+    <link rel="stylesheet" href="./music.css">
+    
+</head>
+s
+<body>
+    <div class="backBlur">
+        <div class="mediaBox">
+            <audio class="music" src=""></audio>
+            <div class="cdBox">
+                <div class="musicPic">
+                    <img class="pic" src="" alt="" draggable="false">
+                </div>
+                <div class="musicPointer">
+                    <img src="./img/cd_tou.png" alt="" draggable="false">
+                </div>
+            </div>
+            <div class="music_controls">
+                <div class="music_info">
+                    <h3 class="music_info_title">歌名</h3>
+                    <p class="music_info_singer">歌手</p>
+                </div>
+                <div class="music_controls_content">
+                    <div class="music_button">
+                        <i class="iconfont icon-shangyishouge"></i>
+                        <i class="iconfont icon-bofang"></i>
+                        <i class="iconfont icon-xiayishou"></i>
+                        <i class="iconfont icon-liebiaoxunhuan"></i>
+                    </div>
+                    <div class="voice_volume">
+                        <i class="iconfont icon-shengyin"></i>
+                        <div class="voice_volume_process">
+                            <label class="voice_box">
+                                <input type="range" name="voice" id="">
+                                <div class="voice_process_bar">
+                                    <div class="process">
+                                        <div class="process_btn"></div>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="song_process">
+                    <label class="song_box">
+                        <input type="range" name="song" id="">
+                        <div class="song_process_bar">
+                            <div class="process">
+                                <div class="process_btn"></div>
+                            </div>
+                        </div>
+                    </label>
+                    <div class="timeProcess" draggable="false">
+                        <div class="time nowTime"></div>
+                        <div class="time totalTime"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="music_list">
+        <ul class="music_list_content">
+            <li class="music_list_item"></li>
+        </ul>
+    </div> -->
+
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,252 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1d1d1d;
+  user-select: none;
+  flex-direction: column;
+}
+body .backBlur {
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+}
+body .backBlur .mediaBox {
+  width: 550px;
+  height: 180px;
+  /* background-color: rgba(255, 99, 71, 0.511); */
+  box-sizing: border-box;
+  padding: 25px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+  border-radius: inherit;
+  backdrop-filter: blur(20px);
+  display: flex;
+}
+body .backBlur .mediaBox .cdBox {
+  width: 130px;
+  height: 130px;
+  background-image: url('img/cd.png');
+  background-size: 100%;
+  display: flex;
+  position: relative;
+}
+body .backBlur .mediaBox .cdBox .musicPic {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: skyblue;
+  margin: auto;
+  overflow: hidden;
+}
+body .backBlur .mediaBox .cdBox .musicPic .pic {
+  width: 100%;
+  animation-name: cd;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: paused;
+}
+@keyframes cd {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+body .backBlur .mediaBox .cdBox .musicPointer {
+  position: absolute;
+  right: -10px;
+  top: 0;
+  width: 25px;
+  transform-origin: right top;
+  transform: rotate(-15deg);
+  transition: all 0.3s;
+}
+body .backBlur .mediaBox .cdBox .musicPointer img {
+  width: 100%;
+}
+body .backBlur .mediaBox .music_controls {
+  width: 330px;
+  height: 130px;
+  /* float: right; */
+  margin-left: 40px;
+}
+body .backBlur .mediaBox .music_controls .music_info {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 15px;
+}
+body .backBlur .mediaBox .music_controls .music_info .music_info_title {
+  color: white;
+  font-size: 16px;
+}
+body .backBlur .mediaBox .music_controls .music_info .music_info_singer {
+  color: #ccc;
+  font-size: 14px;
+  margin-top: 10px;
+}
+body .backBlur .mediaBox .music_controls .music_controls_content {
+  width: 100%;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+body .backBlur .mediaBox .music_controls .music_controls_content .music_button i {
+  color: white;
+  margin: 0 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+body .backBlur .mediaBox .music_controls .music_controls_content .voice_volume {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .backBlur .mediaBox .music_controls .music_controls_content .voice_volume i {
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0 5px;
+}
+body .backBlur .mediaBox .music_controls .music_controls_content .voice_volume .voice_volume_process {
+  width: 100px;
+  height: 5px;
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) inset;
+  border-radius: 2px;
+}
+body .backBlur .mediaBox .music_controls .music_controls_content .voice_volume .voice_volume_process label.voice_box {
+  position: relative;
+  height: 5px;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+body .backBlur .mediaBox .music_controls .music_controls_content .voice_volume .voice_volume_process label.voice_box input[name=voice] {
+  width: 100%;
+  height: 5px;
+  margin: 0;
+  opacity: 0;
+  display: block;
+}
+body .backBlur .mediaBox .music_controls .music_controls_content .voice_volume .voice_volume_process label.voice_box .voice_process_bar {
+  height: 5px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+body .backBlur .mediaBox .music_controls .music_controls_content .voice_volume .voice_volume_process label.voice_box .voice_process_bar .process {
+  width: 100px;
+  height: 100%;
+  border-radius: 2px;
+  background: #0cb6d4;
+  position: relative;
+}
+body .backBlur .mediaBox .music_controls .music_controls_content .voice_volume .voice_volume_process label.voice_box .voice_process_bar .process .process_btn {
+  width: 7px;
+  height: 7px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: -1px;
+  left: 93px;
+}
+body .backBlur .mediaBox .music_controls .song_process {
+  margin-bottom: 5px;
+  margin-top: 15px;
+}
+body .backBlur .mediaBox .music_controls .song_process label.song_box {
+  position: relative;
+  height: 5px;
+  display: block;
+  width: 100%;
+}
+body .backBlur .mediaBox .music_controls .song_process label.song_box input[name=song] {
+  width: 100%;
+  height: 5px;
+  margin: 0;
+  opacity: 0;
+  display: block;
+}
+body .backBlur .mediaBox .music_controls .song_process label.song_box .song_process_bar {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  height: 5px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) inset;
+  border-radius: 2px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+body .backBlur .mediaBox .music_controls .song_process label.song_box .song_process_bar .process {
+  width: 0px;
+  height: 100%;
+  border-radius: 2px;
+  background: #0cb6d4;
+  position: relative;
+}
+body .backBlur .mediaBox .music_controls .song_process label.song_box .song_process_bar .process .process_btn {
+  width: 7px;
+  height: 7px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -1px;
+  left: 0px;
+}
+body .backBlur .mediaBox .music_controls .song_process .timeProcess {
+  display: flex;
+  justify-content: space-between;
+}
+body .backBlur .mediaBox .music_controls .song_process .timeProcess .time {
+  font-size: 12px;
+  color: #fff;
+  margin-top: 5px;
+  padding: 0px 3px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+body .music_list {
+  width: 550px;
+  margin-top: 50px;
+  box-sizing: border-box;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+body .music_list ul.music_list_content {
+  margin: 0;
+  padding: 0;
+}
+body .music_list ul.music_list_content li.music_list_item {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  padding-left: 25px;
+  color: #ccc;
+  position: relative;
+  margin-bottom: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=./music.css.map */
