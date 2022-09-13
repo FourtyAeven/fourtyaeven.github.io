@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>建议放大观看</title>
+    <link rel="stylesheet" href="./my-minireset.css">
+    <script src="./jquery-3.6.0.min.js"></script>
+    <style>
+        body{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box {
+            width: 160px;
+            height: 100px;
+            background-color: black;
+            border-radius: 2px;
+
+            background-repeat: no-repeat;
+            background-size: 1600px 950px;
+
+
+            position: relative;
+        }
+        .box .mask{
+            width: 100%;
+            height: 100%;
+            border-radius: 2px;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 3;
+            display: none;
+            background-color: rgb(0, 0, 0,0.2);
+        }
+        .box img{
+            width: 100%;
+            height: 100%;
+            border-radius: 2px;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .box span {
+            color: white;
+            position: absolute;
+            left: 2px;
+            bottom: 0;
+            font-size: 12px;
+
+            opacity: 0;
+            transition: all 0.4s;
+        }
+
+        .box .dm {
+            opacity: 0;
+        }
+
+        .box .dm p {
+            color: white;
+            font-size: 10px;
+            position: absolute;
+            white-space: nowrap;
+
+            pointer-events: none;
+        }
+
+        .box .progress-bar {
+            width: 100%;
+            height: 5px;
+            border-radius: 2px 2px 0 0;
+            background-color: black;
+        }
+
+        .box .progress {
+            width: 80%;
+            height: 2px;
+            background-color: #363636;
+            position: absolute;
+            top: 1.5px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            opacity: 0;
+        }
+
+        .box .progress .bar {
+            height: 2px;
+            background-color: white;
+            max-width: 100%;
+            width: 0%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="mask"></div>
+        <img src="./eee63cd.webp" alt="">
+        <div class="dm"></div>
+        <div class="progress-bar">
+            <div class="progress">
+                <div class="bar"></div>
+            </div>
+        </div>
+        <span>21:43</span>
+    </div>
+
+    <script>
+        // alert('建议放大观看')
+        // 弹幕
+        var dmText = [
+            "章鱼哥还是没有胜过强风暴雨(doge)",
+            "日本裁判",
+            "日本裁判",
+            "海绵宝宝笑死我了",
+            "黑人小哥",
+            "堡垒之夜",
+            "最喜欢的一集",
+            "最喜欢的一集",
+            "喜欢",
+            "我怎么觉得派大星这个配音我在神奇宝贝里听过",
+            "我看见你了",
+            "但凡章鱼哥早点回去都不至于这样",
+            "这……这我还真有可能“模仿”",
+            "为什么非要执着于台配或者央配呢",
+            "派总依旧稳定输出",
+            "包租公～",
+            "为什么台配的海绵宝宝跟低能儿似的",
+            "井字游戏，其实可以先手必胜的",
+            "我小时候就看的台配",
+            "终于找到了",
+        ];
+
+        var index = [
+            0, 8, 14, 20, 25, 31, 39, 50, 61, 67, 73, 80, 87, 93, 104, 116, 126, 132, 138, 144, 152, 159, 170, 177, 186,
+            196, 207, 215, 224, 231, 238, 244, 249, 255, 260, 265, 271, 278, 283, 290, 297, 303, 311, 319, 330, 335, 350,
+            360, 365, 372, 383, 390, 401, 406, 411, 421, 428, 434, 444, 450, 457, 467, 472, 481, 487, 497, 502, 514, 520,
+            534, 542, 547, 555, 562, 568, 575, 581, 587, 592, 598, 605, 610, 615, 621, 633, 642, 650, 658, 668, 677, 690,
+            696, 702, 709, 715, 720, 733, 740, 746, 751, 759, 767, 776, 782, 790, 798, 804, 814, 826, 833, 840, 850, 856,
+            863, 872, 878, 886, 896, 903, 911, 918, 929, 937, 948, 953, 959, 965, 973, 979, 985, 994, 1001, 1015, 1022,
+            1028, 1034, 1040, 1047, 1059, 1064, 1071, 1077, 1084, 1090, 1099, 1105, 1111, 1121, 1130, 1139, 1150, 1156,
+            1162, 1171, 1178, 1184, 1191, 1197, 1203, 1210, 1216, 1221, 1228, 1233, 1242, 1250, 1260, 1272, 1282, 1292,
+            1297,
+        ]
+
+        function Dm(text, x, y) {
+            this.text = text // 弹幕内容
+            this.y = y //初始位置
+            this.x = x
+        }
+        Dm.prototype.update = function () {
+            this.node.style.left = this.x + 'px'
+            this.node.style.top = this.y + 'px'
+        }
+
+        Dm.prototype.create = function () {
+            this.node = document.createElement('p')
+            this.node.innerText = this.text
+            this.update()
+            $('.box .dm')[0].appendChild(this.node)
+        }
+        Dm.prototype.move = function () {
+            this.x -= 1
+            if (this.node.innerText.length >= 10) {
+                this.x -= 1.5
+            }
+            if (this.x <= -$(this.node).width()) {
+                // this.x = -$(this.node).width()
+                $(this.node).remove()
+            }
+            this.update()
+        }
+
+
+        var dmTF = true
+
+        $('.box').hover(function () {
+            $('span').css('opacity', '1')
+            $('.dm').css('opacity', '1')
+            $('.progress').css('opacity', '1')
+            $('.box img').delay(500).fadeOut()
+            $('.box .mask').css('display','block')
+            // 生成弹幕
+            if (dmTF) {
+                dmTF = false
+                var n = -1
+                var y = 10
+                id = setInterval(() => {
+                    n++
+                    if (n >= dmText.length - 1) {
+                        clearInterval(id)
+                    }
+                    // 上下行弹幕
+                    if (n % 2 === 0) {
+                        y = 10
+                    } else {
+                        y = 30
+                    }
+
+                    var dms = new Dm(dmText[n], 160, y)
+                    dms.create()
+                    // $('p').css('opacity', '1')
+                    id3 = setInterval(() => {
+                        dms.move()
+                    }, 1000 / 60);
+                }, 2000);
+                setTimeout(() => {
+                    dmTF = true
+                }, 2000 * dmText.length);
+            }
+
+
+            // 切换图片 进度条
+            $('.box')[0].onmousemove = function () {
+
+                var mx = event.offsetX // 鼠标偏移量
+                var barX = mx / 160 * 100 //进度条偏移量
+                var picX = 1303 / 100 * barX // 图片偏移量
+                // 进度条
+                $('.progress .bar').css('width', barX + '%')
+                // console.log(picX);
+                $(index).each(function (i) {
+                    if (picX >= index[i] && picX < index[i + 1]) {
+                        // 第一张图
+                        if (i <= 100) {
+                            $('.box').css({
+                                'background-image': 'url(./1.jpg)',
+                                'background-position': '2px 5px'
+                            })
+                            picMove(i)
+                        }
+                        // 第二张图
+                        if (i > 100) {
+                            $('.box').css({
+                                'background-image': 'url(./2.jpg)',
+                            })
+                            picMove(i % 100)
+                        }
+
+                        function picMove(i) {
+                            var y = 5 + 'px'
+                            var x = -((i % 10) * 160 - 2) + 'px'
+                            if (i > 10) {
+                                y = -(((Math.floor(i / 10)) * 90) + 5 * ((Math.floor(i / 10) - 1))) + 'px'
+                            }
+                            $('.box')[0].style.backgroundPositionX = x
+                            $('.box')[0].style.backgroundPositionY = y
+                            // console.log(x, y);
+                        }
+                    }
+                })
+            }
+        }, function () {
+            $('span').css('opacity', '0')
+            $('.dm').css('opacity', '0')
+            $('.progress').css('opacity', '0')
+            $('.box img').fadeIn()
+            $('.box .mask').css('display','none')
+        })
+    </script>
+</body>
+
+</html>

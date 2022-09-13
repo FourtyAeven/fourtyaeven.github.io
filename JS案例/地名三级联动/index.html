@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            display: flex;
+        }
+        /* ::-webkit-scrollbar{
+            display: none;
+        } */
+        ul {
+            padding: 0;
+            margin: 0;
+            margin-right: 20px;
+            width: 150px;
+            height: 300px;
+            overflow: scroll;
+
+        }
+
+        li {
+
+            list-style: none;
+            background-color: #393b3a;
+            color: #e8d2b8;
+        }
+
+        .active {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="title1"></ul>
+    <ul class="title2"></ul>
+    <ul class="title3"></ul>
+    <script>
+        function xxx() {
+            $('.title3').html('')
+            $(event.target).addClass('active').siblings().removeClass('active')
+            arr3.forEach(function (e) {
+                if ($(event.target).attr("data-id") === e[0].slice(0, 4)) {
+                    $('.title3').append('<li data-id=' + e[0] + '>' + e[1] + '</li>')
+                }
+            })
+        }
+        var arr1 = []
+        var arr2 = []
+        var arr3 = []
+        $.get('./prov-county.json', function (res, status) {
+
+            res.forEach(function (site) {
+                // console.log(site.split(':')[0]);
+                if (site.split(':')[0].length === 2) {
+                    // console.log(site.split(':'));
+                    arr1.push(site.split(':'))
+                } else if (site.split(':')[0].length === 4) {
+                    // console.log(site.split(':'))
+                    // var arr2S = site.split(':').sort(function(a,b){
+                    //     return b[0] - a[0]
+                    // })
+                    // console.log(arr2S);
+                    arr2.push(site.split(':'))
+                    arr2.sort(function (a, b) {
+                        return a[0] - b[0]
+                    })
+                } else {
+                    arr3.push(site.split(':'))
+                    arr3.sort(function (a, b) {
+                        return a[0] - b[0]
+                    })
+                }
+            });
+
+            //初始化
+            function init(arr, index, num, choose, li) {//数组 截取范围 匹配数字 (添加到哪 哪里的li加类名)===>字符串选择器
+                arr.forEach(function (e) {
+                    if (e[0].slice(0, index) == num) {
+                        $(choose).append('<li data-id=' + e[0] + '>' + e[1] + '</li>')
+                    }
+                    if (li) {
+                        $($(li)[0]).addClass('active')
+                    }
+                })
+            }
+
+            init(arr1, 0, '', '.title1', '.title1 li')
+            init(arr2, 2, 11, '.title2', '.title2 li')
+            init(arr3, 4, 1101, '.title3')
+
+            $('.title1 li').click(function () {
+                $('.title2').html('')
+                $('.title3').html('')
+                $(this).addClass('active').siblings().removeClass('active')
+                // console.log($(this).attr("data-id"));
+                var _this = this
+                arr2.forEach(function (e) {
+                    // e[0].slice(0,2) 市级前两位id
+                    if ($(_this).attr("data-id") === e[0].slice(0, 2)) {
+                        $('.title2').append("<li onclick='xxx()' data-id=" + e[0] + ">" + e[1] + "</li>")
+                    }
+                })
+                $($('.title2 li')[0]).addClass('active')
+                arr3.forEach(function (e) {
+                    if ($(_this).attr("data-id") === e[0].slice(0, 2)) {
+                        $('.title3').append('<li data-id=' + e[0] + '>' + e[1] + '</li>')
+                    }
+                })
+            })
+        })
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./my-minireset.css">
+    <style>
+        h1{
+            text-align: center;
+            font-size: 60px;
+        }
+        .stage {
+            width: 500px;
+            height: 500px;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 auto;
+        }
+        .stage li {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h1></h1>
+    <ul class="stage"></ul>
+
+    <script>
+        var level = 1
+        var h1 = document.querySelector('h1')
+        var stage = document.querySelector('.stage')
+
+        function showDot(level) {
+            stage.innerHTML = '' // 关卡升级,之前的关卡清空
+            h1.innerText = '第'+ level + '关'
+
+            //设置随机颜色 rgb(0-255,0-255,0-255) 或 #ffffff
+            // Number.toString(xx)  xx设置多少进制转换
+            var color = '#' + Math.random().toString(16).slice(-6) //随机16进制数后六位
+            for (let i = 0; i < Math.pow(level + 2, 2); i++) { // 生成多少个色块
+                var node = document.createElement('li')
+                node.style.backgroundColor = color
+                node.style.width = 500 / (level + 2) + 'px'
+                stage.appendChild(node)
+                
+            }
+            // 随机设置一个不一样的色块(改变透明度)
+            // 随机获取一个li
+            var index = Math.floor(Math.random() * stage.querySelectorAll('li').length)
+            stage.querySelectorAll('li')[index].style.opacity = (level / 50 + 0.5).toString()
+            stage.querySelectorAll('li')[index].onclick = function () {// 点击这个特殊色块到下一关
+                level++
+                showDot(level)
+            }
+        }
+        showDot(level)
+    </script>
+</body>
+</html>

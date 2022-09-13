@@ -14,7 +14,6 @@ $nav_li.click(function (e) {
     $(this).addClass('active').siblings().removeClass('active');
 
     if ($(this).text() === '主页') {
-        // console.log(11);
         $resume_left.css({
             'display': 'flex',
             'transform': "translateY(-100%)",
@@ -24,9 +23,8 @@ $nav_li.click(function (e) {
             'width': '50%',
         });
         $demo.css({
-            'transform': "translate(100%)",
             'opacity': '0',
-            // 'width': '40%',
+            'display': 'none',
         });
         $demo_a.css({
             'display': 'none',
@@ -39,11 +37,6 @@ $nav_li.click(function (e) {
                 'opacity': '1',
                 'width': '50%',
                 'transform': "translate(0%)",
-            });
-            $demo.css({
-                'transform': "translate(0%)",
-                'opacity': '0',
-                'width': '0%',
             });
         }, 600);
     } else {
@@ -64,16 +57,21 @@ $nav_li.click(function (e) {
                 'opacity': '1',
             });
             $demo.css({
-                'transform': "translate(0%)",
-                'opacity': '1',
-                'width': '80%',
+                'display': 'block',
             });
             $demo_a.css({
                 'display': 'block',
             });
         }, 600);
+        setTimeout(() => {
+            $demo.css({
+                'opacity': '1',
+            });
+        }, 1000);
     }
 });
+
+
 $($nav_span[0]).addClass('active');
 $demo_a_web.show().siblings().hide();
 $nav_span.click(function () {

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./my-minireset.css">
+    <style>
+        .stage {
+            background-image: url('./imgs/bg.png');
+            background-size: 100% auto;
+            width: 100%;
+            max-width: 580px;
+            height: 100vh;
+            position: relative;
+        }
+
+        .stage .start{
+            width: 100%;
+            height: 100%;
+            background-image: url('./imgs/bg.png');
+            background-size: 100% auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 4;
+            /* display: none; */
+        }
+        .stage .start .top{
+            background-image: url(./imgs/jingling.png);
+            background-size: 591px;
+            position: absolute;
+            left: 57px;
+            top: 20%;
+            width: 245px;
+            height: 62px;
+        }
+        .stage .start .center{
+            background-image: url(./imgs/jingling.png);
+            background-size: 640px;
+            background-position: -264px 0;
+            position: absolute;
+            left: 55px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 245px;
+            height: 90px;
+        }
+        .stage .start .bottom{
+            background-image: url(./imgs/jingling.png);
+            background-size: 557px;
+            background-position: 0 -169px;
+            width: 360px;
+            height: 90px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+        .stage .tip{
+            background-color: rgba(0, 0, 0, 0.423);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 3;
+        }
+        .stage .tips{
+            background-image: url(./imgs/jingling.png);
+            background-size: 545px;
+            background-position: -352px -91px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 90px;
+            width: 194px;
+            height: 168px;
+        }
+        .stage .main {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .stage .main i {
+            background-image: url(./imgs/jingling.png);
+            background-position: -181px -76.5px;
+            background-size: 545px;
+            width: 90px;
+            height: 90px;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .stage .main i.click {
+            background-image: url(./imgs/playing.png);
+            background-position: center;
+            background-size: 35%;
+            background-repeat: no-repeat;
+        }
+
+        .stage .over {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.423);
+            display: none;
+        }
+
+        .stage .over .pic {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 10%;
+            width: 80%;
+            background-color: #fff;
+            border-radius: 10px;
+            height: 244.8px;
+
+        }
+
+        .stage .over .pic img {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            transform: translateY(-50%);
+            width: 80%;
+        }
+
+        .stage .score {
+            display: flex;
+            position: relative;
+            z-index: 2;
+            justify-content: center;
+            top: 20px;
+            pointer-events: none;
+        }
+
+        .num {
+            display: block;
+            width: 28px;
+            height: 35px;
+            /* background-color: red; */
+            background-image: url("./imgs/score.png");
+            background-size: auto 100%;
+            background-repeat: no-repeat;
+        }
+
+        .num0 {
+            background-position-x: 0;
+        }
+
+        .num1 {
+            background-position-x: -28px;
+        }
+
+        .num2 {
+            background-position-x: -56px;
+        }
+
+        .num3 {
+            background-position-x: -84px;
+        }
+
+        .num4 {
+            background-position-x: -112px;
+        }
+
+        .num5 {
+            background-position-x: -140px;
+        }
+
+        .num6 {
+            background-position-x: -168px;
+        }
+
+        .num7 {
+            background-position-x: -196px;
+        }
+
+        .num8 {
+            background-position-x: -224px;
+        }
+
+        .num9 {
+            background-position-x: -252px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+        <div class="start">
+            <div class="top"></div>
+            <div class="center"></div>
+            <div class="bottom"></div>
+        </div>
+        <div class="tip">
+            <div class="tips"></div>
+        </div>
+        <div class="main"></div>
+        <div class="over">
+            <div class="pic"><img src="./imgs/level1.png" alt=""></div>
+        </div>
+        <div class="score">
+            <i class="num num0"></i>
+        </div>
+    </div>
+
+    <script>
+        stageEl = document.querySelector('.stage')
+        indexEl = document.querySelector('.stage .start')
+        startEl = document.querySelector('.stage .start .center')
+        tipEl = document.querySelector('.stage .tip')
+        mainEl = document.querySelector('.stage .main')
+        overEl = document.querySelector('.stage .over')
+        scoreEl = document.querySelector('.stage .score')
+        imgEl = document.querySelector('.stage .over .pic img')
+
+        var dots = [] // 初始数组,存储钢琴块s
+        var score = 0 // 初始分数
+        var speed = 0.03 // 初始速度
+        var music = [  // 乐谱数组
+            [
+                25, 21, 22, 23, 24, 25, 21, 21, 26, 24, 25, 26, 27, 31, 21, 21, 24, 25, 24, 23, 22, 23, 24, 23, 22, 21, 17,
+                21, 22, 23, 21, 22, 25, 21, 22, 23, 24, 25, 21, 21, 26, 24, 25, 26, 27, 31, 21, 21, 24, 25, 24, 23, 22, 23,
+                24, 23, 22, 21, 22, 23, 22, 21, 17, 21,
+            ],
+            [
+                23, 22, 21, 17, 16, 15, 16, 17, 21, 17, 16, 15, 14, 13, 14, 12, 21, 17, 21, 11, 7, 15, 12, 13, 11, 21, 17, 16,
+                17, 23, 25, 26, 24, 23, 22, 24, 24, 23, 21, 17, 16, 15, 14, 13, 12, 14, 13, 12, 11, 12, 13, 14, 15, 12, 15,
+                14, 13, 16, 15, 14, 15, 14, 13, 12, 11, 6, 16, 17, 21, 17, 16, 15, 14, 13, 12, 16, 15, 16, 15, 14, 13, 23, 22,
+                21, 22, 21, 23, 22, 24, 25, 23, 24, 25, 23, 24, 25, 15, 16, 17, 21, 22, 23, 24, 23, 21, 22, 23, 13, 14, 15,
+                16, 15, 14, 15, 13, 14, 15, 14, 16, 15, 14, 13, 12, 13, 12, 11, 12, 13, 14, 15, 16, 14, 16, 15, 16, 17, 21,
+                15, 16, 17, 21, 22, 23, 24, 25, 23, 21, 22, 23, 22, 21, 22, 17, 21, 22, 23, 22, 21, 17, 21, 16, 17, 21, 11,
+                12, 13, 14, 13, 12, 13, 21, 17, 21, 16, 21, 17, 16, 15, 14, 15, 14, 13, 14, 15, 16, 17, 11, 16, 21, 17, 21,
+                17, 16, 17, 21, 22, 21, 17, 21, 16, 17, 23, 13, 14, 13, 12, 22, 23, 22, 21, 13, 11, 16, 15, 5, 4, 5, 6, 16,
+                17, 16, 17, 5, 4, 5, 6, 16, 15, 16, 17, 17, 16, 17, 11, 21, 22, 21, 17, 7, 11, 7, 6, 16, 15, 16, 17, 7, 13,
+                12, 11, 21, 22, 24, 23, 13, 15, 23, 21, 24, 23, 24, 22, 15, 14, 15, 13, 21, 17, 21, 13, 15, 15, 16, 17, 15,
+                13, 21, 22, 23, 21, 23, 23, 22, 21, 17, 16, 16, 15, 16, 17, 21, 23, 22, 21, 23,
+            ],
+        ];
+        var randomMusic = music[Math.floor(Math.random() * music.length)] // 随机选取乐谱
+
+        mainEl.onclick = function () {
+            clearInterval(id)
+            overEl.style.display = 'block'
+        }
+
+        // 构造函数
+        function Dot(y) {
+            this.x = Math.floor(Math.random() * 4)
+            this.y = y // 格数
+            // 创建节点
+            this.node = document.createElement('i')
+            // 追加dom
+            mainEl.appendChild(this.node)
+
+            this.update()
+            var clickThis = this
+            this.node.onclick = function () {
+                // 限制点击顺序 只能执行未点击的第一个
+                var unclickDot = dots.filter(function (dot) {
+                    return !dot.click
+                })
+
+                if (this.isSameNode(unclickDot[0].node)) {
+
+                    clickThis.node.classList.add('click')
+                    clickThis.click = true
+                    
+                    // console.log(clickThis.music);
+                    var musicNode = document.createElement('audio')
+                    musicNode.src = './music/sound_' + clickThis.music + '.mp3'
+                    musicNode.play()
+
+                    score++
+                    if (score % 50 === 0) {
+                        speed += 0.005
+                    }
+                    // 更新score分数
+                    scoreEl.innerHTML = '' // 清空事件累计
+                    String(score).split('').forEach(function (n) {
+                        var node = document.createElement('i')
+                        node.classList.add('num')
+                        node.classList.add('num' + n)
+                        scoreEl.appendChild(node)
+                    })
+
+                    // console.log(score);
+                    // 分数评价
+                    if (score >= 0 && score <= 10) {
+                        imgEl.src = "./imgs/level1.png"
+                        // console.log(1);
+                    } else if (score > 10 && score <= 20) {
+                        imgEl.src = "./imgs/level2.png"
+                    } else {
+                        imgEl.src = "./imgs/level3.png"
+                    }
+                }
+                event.stopPropagation(); // 阻止冒泡
+            }
+        }
+
+        // 位置更新
+        Dot.prototype.update = function () {
+            this.node.style.left = this.x * 90 + 'px';
+            this.node.style.top = this.y * 90 + 'px';
+        }
+
+        // 初始化 生成6个 点击第一个再开始
+        function init() {
+            for (var i = 3; i > 0; i--) {
+                var d = new Dot(i - 1)
+
+                var tmp = randomMusic.shift()
+                randomMusic.push(tmp)
+                d.music = tmp
+
+                dots.push(d)
+            }
+        }
+        init()
+
+        // 移动
+        Dot.prototype.move = function () {
+            this.y += speed
+        }
+
+        // 主体
+        startEl.onclick = function () {
+            indexEl.style.display = 'none'
+            tipEl.onclick = function () {
+                tipEl.style.display = 'none'
+                id = setInterval(function () {
+                    dots.forEach(function (d) {
+                        d.move()
+                        d.update()
+                    })
+        
+                    // 如果最后一个块已经完全出现,则生成新的一个块
+                    if (dots[dots.length - 1].y >= 0) {
+                        var d = new Dot(-1)
+        
+                        var tmp = randomMusic.shift()
+                        randomMusic.push(tmp)
+                        d.music = tmp
+        
+                        dots.push(d)
+                    }
+        
+                    // 从数组中挑出所有click为false的
+                    var unclickDot = dots.filter(function (dot) {
+                        return !dot.click
+                    })
+                    // 如果第一个块到达底部(未被点击),游戏结束
+                    if (unclickDot[0] && (unclickDot[0].y + 1) * 90 >= 640) {
+                        // console.log('GG');
+                        clearInterval(id)
+                        overEl.style.display = 'block'
+                    }
+                    // 删除到底部且被点击的块
+                    var clickDot = dots.filter(function (dot) {
+                        return dot.click
+                    })
+                    if (clickDot[0] && clickDot[0].y * 90 > 640) {
+                        // 删除数组对应块
+                        dots.shift()
+                        // 删除dom对应块
+                        mainEl.removeChild(clickDot[0].node)
+                        // console.log(dots);
+                    }
+                }, 1000 / 60);
+            }
+        }
+    </script>
+</body>
+
+</html>
