@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            background: #e1e1e1;
+            color: #666;
+            margin: 0.4em;
+            padding: 1em;
+            transition-duration: 0.5s;
+            animation-duration: 0.5s;
+            display: inline-block;
+        }
+
+        .Grow:hover {
+            transform: scale(1.2);
+        }
+
+        .Shrink:hover {
+            transform: scale(0.8);
+        }
+
+        @keyframes Pulse {
+            from {
+                transform: scale(0.8);
+            }
+
+            to {
+                transform: scale(1.2);
+            }
+        }
+
+        .Pulse:hover {
+            animation-name: Pulse;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes Pulse-Grow {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.2);
+            }
+        }
+
+        .Pulse-Grow:hover {
+            animation-name: Pulse-Grow;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes Pulse-Shrink {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(0.8);
+            }
+        }
+
+        .Pulse-Shrink:hover {
+            animation-name: Pulse-Shrink;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes Push {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(0.8);
+            }
+        }
+
+        .Push:hover {
+            animation-name: Push;
+            animation-direction: alternate;
+            animation-iteration-count:2;
+        }
+
+        @keyframes Pop {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.2);
+            }
+        }
+
+        .Pop:hover {
+            animation-name: Pop;
+            animation-direction: alternate;
+            animation-iteration-count:2;
+        }
+
+        @keyframes Bounce-In {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.2);
+            }
+        }
+
+        .Bounce-In:hover {
+            animation-name: Bounce-In;
+            animation-direction: alternate;
+            animation-iteration-count:3;
+            animation-timing-function: steps(4,start);
+        }
+    </style>
+</head>
+
+<body>
+    <h2>2D Transitions</h2>
+    <a class="box Grow">放大</a>
+    <a class="box Shrink">缩小</a>
+    <a class="box Pulse">脉动</a>
+    <a class="box Pulse-Grow">脉动-放大</a>
+    <a class="box Pulse-Shrink">脉动-缩小</a>
+    <a class="box Push">内收</a>
+    <a class="box Pop">外收</a>
+    <a class="box Bounce-In">反弹</a>
+    <!-- <a class="box "></a>
+    <a class="box "></a>
+    <a class="box "></a> -->
+</body>
+
+</html>

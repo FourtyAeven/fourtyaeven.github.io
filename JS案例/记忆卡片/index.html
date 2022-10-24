@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./my-minireset.css">
+    <style>
+        ul.stage {
+            width: 500px;
+            height: 500px;
+            /* background-color: lightcoral; */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
+            margin: 0 auto;
+        }
+
+        ul.stage li {
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            background-color: skyblue;
+            color: skyblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 3em;
+        }
+
+        ul.stage li.open {
+            color: white;
+        }
+
+        ul.stage li.equal {
+            color: white;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="stage"></ul>
+    <!-- ♠,♥,♦,♣ -->
+    <script>
+        var stage = document.querySelector('.stage');
+        var icons = ['♠', '♥', '♦', '♣', '♤', '♡', '♢', '♧'];
+        //把一个数组变成每项都有两个的
+        function doubleArr(arr) {
+            var temp = [];
+            arr.forEach(function (e) {
+                temp.push(e);
+                temp.push(e);
+            });
+            return temp;
+        }
+
+        // 洗牌函数,随机顺序
+        function shuffle(arr) {
+            arr.sort(function () {
+                return Math.random() - 0.5;
+            });
+            return arr;
+        }
+
+        var d = doubleArr(icons);
+        var arr = shuffle(shuffle(d));
+        var arr = d;
+
+        // 游戏初始化
+        arr.forEach(function (icon) {
+            var node = document.createElement('li');
+            node.innerHTML = '<span>' + icon + '</span>'; // 把花色放进创建的li
+            stage.appendChild(node); // li追加到ul里
+
+            // 给每个li卡片绑定点击事件
+            node.onclick = function () {
+                if (!this.classList.contains('equal')) {
+                    this.classList.add('open'); //点击一下设置类名open
+                    //查找所有具有open的li
+
+                    var openList = [];
+                    for (var i = 0; i < stage.children.length; i++) {
+                        if (stage.children[i].classList.contains('open')) {
+                            openList.push(stage.children[i]);
+                        }
+                    }
+                    //如果有两个具有open的li就对比 如果1个就不做
+                    // 判断open的个数
+                    if (openList.length === 2) {
+                        setTimeout(function () {
+                            openList[0].classList.remove('open');
+                            openList[1].classList.remove('open');
+
+                            if (openList[0].innerHTML === openList[1].innerHTML) {
+                                openList[0].classList.add('equal');
+                                openList[1].classList.add('equal');
+                            }
+                        }, 500);
+                    }
+                }
+
+            };
+        })
+    </script>
+</body>
+
+</html>

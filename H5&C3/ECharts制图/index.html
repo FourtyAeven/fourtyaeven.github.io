@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.3.3/echarts.min.js"></script>
+</head>
+
+<body>
+    <!-- 2d echarts  d3.js -->
+    <!-- 3d three.js -->
+
+    <!-- 为 ECharts 准备一个定义了宽高的 DOM -->
+    <div id="main" style="width: 600px; height: 400px"></div>
+
+    <script>
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById("main"), "dark");//初始化增加dark字符串,设置主题为深色
+
+        // 指定图表的配置项和数据
+        var option = {
+            aria: { //花纹
+                // 下面几行可以不写，因为 label.enabled 默认 true
+                label: {
+                    enabled: true,
+                },
+                decal: {
+                    show: true,
+                },
+                enabled: true,
+            },
+            title: {
+                text: "ECharts xcxxxx",
+            },
+            tooltip: {},
+            legend: {
+                data: ["销量"],
+            },
+            xAxis: {
+                data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],
+            },
+            yAxis: {},
+            series: [
+                {
+                    name: "销量",
+                    type: "line",
+                    smooth: true,
+                    areaStyle: { //填充样式
+                        color: "red",
+                    },
+                    data: [5, 20, 36, 10, 10, 20],
+                },
+            ],
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>

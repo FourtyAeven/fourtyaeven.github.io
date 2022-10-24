@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    p {
+        margin: 0;
+    }
+
+    body {
+        background-color: #f4f4f4;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+
+        /* align-items: center; */
+    }
+
+    .content {
+        /* text-align: center; */
+        margin-top: 80px;
+        width: 540px;
+    }
+
+    .content .btn {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 28px;
+        /* cursor: pointer; */
+    }
+
+    .content .btn a {
+        padding: 12px 24px;
+        width: 120px;
+        background: linear-gradient(145deg, #ffffff, #dcdcdc);
+        box-shadow: 3px 3px 5px #bebebe, -3px -3px 5px #ffffff;
+        border-radius: 18px;
+        box-sizing: border-box;
+        text-align: center;
+        color: #a2a2a2;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .container .content .info {
+        box-shadow: 3px 3px 6px #bebebe, -3px -3px 6px #ffffff;
+        border-radius: 18px;
+        position: relative;
+    }
+
+    .container .content .info .table {
+        padding: 46px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .container .content .info .table:first-child {
+        position: relative;
+    }
+
+    .container .content .info .table p {
+        margin-bottom: 12px;
+        font-size: 16px;
+        color: #a2a2a2;
+    }
+
+    .container .content .info .table p:last-child {
+        color: #626262;
+        font-size: 13.6px;
+        margin: 0;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="btn">
+                <a>Mercury</a>
+                <a>Venus</a>
+                <a>Earth</a>
+                <a>Mars</a>
+            </div>
+            <div class="info">
+                <div class="table">
+                    <p>Mercury is the smallest and innermost planet in the Solar System.</p>
+                    <p>Its orbit around the Sun takes 87.97 days, the shortest of all the planets in the Solar System.
+                    </p>
+                    <p>It is named after the Roman deity Mercury, the messenger of the gods.</p>
+                    <p>
+                        Learn more
+                        <span>➡️</span>
+                    </p>
+                </div>
+                <div class="table">
+                    <p>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.
+                    </p>
+                    <p>Venus orbits the Sun every 224.7 Earth days.</p>
+                    <p>As the second-brightest natural object in the night sky after the Moon, Venus can cast shadows
+                        and, rarely, is visible to the naked eye in broad daylight.</p>
+                    <p>
+                        Learn more
+                        <span>➡️</span>
+                    </p>
+                </div>
+                <div class="table">
+                    <p>Earth is the third planet from the Sun.</p>
+                    <p>Earth orbits around the Sun in 365.256 days, a period known as an Earth sidereal year. During
+                        this time, Earth rotates about its axis about 366.256 times.</p>
+                    <p>Earth's axis of rotation is tilted with respect to its orbital plane, producing seasons on Earth.
+                    </p>
+                    <p>
+                        Learn more
+                        <span>➡️</span>
+                    </p>
+                </div>
+                <div class="table">
+                    <p>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System after
+                        Mercury.</p>
+                    <p>In English, Mars carries a name of the Roman god of war and is often referred to as the 'Red
+                        Planet'. The latter refers to the effect of the iron oxide prevalent on Mars' surface.</p>
+                    <p>Mars is a terrestrial planet with a thin atmosphere.</p>
+                    <p>
+                        Learn more
+                        <span>➡️</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var btns = document.getElementsByClassName('btn')[0].getElementsByTagName('a')
+        var infos = document.getElementsByClassName('info')[0].getElementsByClassName('table')
+        //定义点击按钮方法
+        function btnClick(n) {
+            for (var j = 0; j < btns.length; j++) {
+                
+                if (j === n) {
+                    btns[j].style.boxShadow = 'inset 3px 3px 5px #cbcbcb, inset -3px -3px 5px #ffffff';
+                    btns[j].style.color = '#bdbdbd';
+                    btns[j].style.background = '#f4f4f4'
+                    infos[j].style.opacity = 1
+                    btns[j].style.cursor = 'default'
+                } else {
+                    btns[j].style.boxShadow = '3px 3px 5px #bebebe, -3px -3px 5px #ffffff';
+                    btns[j].style.color = '#a2a2a2';
+                    btns[j].style.background = 'linear-gradient(145deg, #ffffff, #dcdcdc)'
+                    infos[j].style.opacity = 0
+                    btns[j].style.cursor = 'pointer'
+
+                }
+            }
+        }
+
+        function btnEnter(m) {
+            for (var i = 0; i < btns.length; i++) {
+                if (i === m) {
+                    btns[i].style.background = 'linear-gradient(145deg, #f1f1f1, #d1d1d1)'
+                } else {
+                    btns[i].style.background = 'linear-gradient(145deg, #ffffff, #dcdcdc)'
+                }
+                
+            }
+        }
+        //初始化
+        btnClick(0)
+
+
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].title = i
+            btns[i].onclick = function () {
+                btnClick(Number(this.title))
+            }
+            btns[i].onmouseenter = function () {
+                // console.log(this.title);
+                btnEnter(Number(this.title))
+            }
+            btns[i].onmouseout = function() {
+                btns[this.title].style.background = 'linear-gradient(145deg, #ffffff, #dcdcdc)'
+            }
+
+        }
+    </script>
+</body>
+
+</html>

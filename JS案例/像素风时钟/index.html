@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./my-minireset.css">
+    <style>
+        body{
+            background-color: black;
+        }
+        i {
+            width: 30%;
+            height: 50px;
+            /* background-color: skyblue; */
+            /* outline: 1px solid red; */
+            /* box-shadow: 3px 3px 6px #bebebe, -3px -3px 6px #ffffff; */
+            margin: 2px;
+            transition: all 0.3s;
+        }
+
+        i.active {
+            background-color: white;
+        }
+
+        .time {
+            display: flex;
+            justify-content: center;
+        }
+
+        .time div{
+            display: flex;
+            margin: 50px;
+        }
+        .time .dots{
+            position: relative;
+            top: 100px;
+
+            height: 150px;
+        }
+        .time .dots .dot{
+            width: 50px;
+            height: 50px;
+            background-color: white;
+        }
+        .time .dots .dot:nth-child(2){
+            background-color: black;
+        }
+
+        .time  span {
+            width: 200px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="num"></div>
+    <div class="time">
+        <div class="hh">
+            <span class="h1"></span>
+            <span class="h2"></span>
+        </div>
+        <ul class="dots">
+            <li class="dot"></li>
+            <li class="dot"></li>
+            <li class="dot"></li>
+        </ul>
+        <div class="mm">
+            <span class="m1"></span>
+            <span class="m2"></span>
+        </div>
+        <ul class="dots">
+            <li class="dot"></li>
+            <li class="dot"></li>
+            <li class="dot"></li>
+        </ul>
+        <div class="ss">
+            <span class="s1"></span>
+            <span class="s2"></span>
+        </div>
+    </div>
+
+
+
+    <script>
+        var nums = [
+            [
+                [1, 1, 1],
+                [1, 0, 1],
+                [1, 0, 1],
+                [1, 0, 1],
+                [1, 1, 1]
+            ],
+            [
+                [0, 0, 1],
+                [0, 0, 1],
+                [0, 0, 1],
+                [0, 0, 1],
+                [0, 0, 1]
+            ],
+            [
+                [1, 1, 1],
+                [0, 0, 1],
+                [1, 1, 1],
+                [1, 0, 0],
+                [1, 1, 1]
+            ],
+            [
+                [1, 1, 1],
+                [0, 0, 1],
+                [1, 1, 1],
+                [0, 0, 1],
+                [1, 1, 1]
+            ],
+            [
+                [1, 0, 1],
+                [1, 0, 1],
+                [1, 1, 1],
+                [0, 0, 1],
+                [0, 0, 1]
+            ],
+            [
+                [1, 1, 1],
+                [1, 0, 0],
+                [1, 1, 1],
+                [0, 0, 1],
+                [1, 1, 1]
+            ],
+            [
+                [1, 1, 1],
+                [1, 0, 0],
+                [1, 1, 1],
+                [1, 0, 1],
+                [1, 1, 1]
+            ],
+            [
+                [1, 1, 1],
+                [0, 0, 1],
+                [0, 0, 1],
+                [0, 0, 1],
+                [0, 0, 1]
+            ],
+            [
+                [1, 1, 1],
+                [1, 0, 1],
+                [1, 1, 1],
+                [1, 0, 1],
+                [1, 1, 1]
+            ],
+            [
+                [1, 1, 1],
+                [1, 0, 1],
+                [1, 1, 1],
+                [0, 0, 1],
+                [0, 0, 1]
+            ],
+        ]
+        
+        // 初始化
+        nums[0].forEach(function (row, rowi) {
+            row.forEach(function (item, coli) {
+                var node1 = document.createElement('i')  // 按二维数组创建i
+                var node2 = document.createElement('i')  // 按二维数组创建i
+                var node3 = document.createElement('i')  // 按二维数组创建i
+                var node4 = document.createElement('i')  // 按二维数组创建i
+                var node5 = document.createElement('i')  // 按二维数组创建i
+                var node6 = document.createElement('i')  // 按二维数组创建i
+                if (item) { // 1是true 0是false
+                    node1.classList.add('active')
+                    node2.classList.add('active')
+                    node3.classList.add('active')
+                    node4.classList.add('active')
+                    node5.classList.add('active')
+                    node6.classList.add('active')
+                }
+                document.querySelector('.s1').appendChild(node1) // 追加i到dom
+                document.querySelector('.s2').appendChild(node2) // 追加i到dom
+                document.querySelector('.h1').appendChild(node3) // 追加i到dom
+                document.querySelector('.h2').appendChild(node4) // 追加i到dom
+                document.querySelector('.m1').appendChild(node5) // 追加i到dom
+                document.querySelector('.m2').appendChild(node6) // 追加i到dom
+            })
+        })
+
+        function showNum(element,index) {
+            var iDoms = element.querySelectorAll('i')
+            nums[index].forEach(function (row, rowi) {
+                row.forEach(function (item, coli) {
+                    if (item) {
+                        iDoms[rowi * 3 + coli].classList.add('active')
+                    } else {
+                        iDoms[rowi * 3 + coli].classList.remove('active')
+                    }
+                    // console.log(iDoms[rowi * 3 + coli]); // 获取所有方块,符合数字的方块添加类名
+                })
+            })
+        }
+
+        setInterval(() => {
+            var now = new Date()
+            var ss = String(now.getSeconds()).padStart(2, '0') //padStart：返回新的字符串，表示用参数字符串从头部（左侧）补全原字符串。
+            var hh = String(now.getHours()).padStart(2, '0') // 用0补全两位
+            var mm = String(now.getMinutes()).padStart(2, '0') 
+            // console.log(now.getSeconds() % 10); //秒钟个位数
+            // showNum(now.getSeconds() % 10)
+            var ssNum = document.querySelector('.ss')
+            // console.log(ssNum);
+            var mmNum = document.querySelector('.mm')
+            var hhNum = document.querySelector('.hh')
+            
+            ssNum.querySelectorAll('span').forEach(function(element,index) {
+                showNum(element,ss[index])
+            })
+            mmNum.querySelectorAll('span').forEach(function(element,index) {
+                showNum(element,mm[index])
+            })
+            hhNum.querySelectorAll('span').forEach(function(element,index) {
+                showNum(element,hh[index])
+            })
+        }, 1000);
+    </script>
+</body>
+
+</html>

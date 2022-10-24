@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./my-minireset.css">
+    <!-- 需求:
+        设置一个九宫格,中间一个设为抽奖按钮,其余设置奖品
+        按钮绑定点击事件,抽奖时间内不能再点击
+        抽奖时间结束,显示抽中的奖品 设置固定起点,随机抽奖时间(丑)/设置固定时间,随机抽奖起点(不便清除之前的样式)
+        设置抽奖时间内,奖品之间的跳转 -->
+    <style>
+        .res {
+            width: 320px;
+            height: 40px;
+            box-shadow: rgb(0 0 0 / 30%) 0 0 3px 2px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translate(-50%);
+            letter-spacing: 2px;
+        }
+
+        .stage {
+            width: 330px;
+            height: 330px;
+            /* background-color: skyblue; */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+
+            position: absolute;
+            top: 170px;
+            left: 50%;
+            transform: translate(-50%);
+
+        }
+
+        .stage span {
+            width: 100px;
+            height: 100px;
+            background-color: #16baec;
+            margin: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            color: #ffffff;
+
+            transition: all 0.3s;
+        }
+
+        .stage span:nth-child(5) {
+            background-color: #ff943d;
+        }
+
+        .stage .active {
+            background-color: #4e4e4e;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="res"></div>
+    <div class="stage">
+        <span class="active">手机</span>
+        <span>平板</span>
+        <span>电磁炉</span>
+        <span>电视</span>
+        <span class="start">开始</span>
+        <span>洗衣机</span>
+        <span>电脑</span>
+        <span>冰箱</span>
+        <span>衣柜</span>
+    </div>
+
+    <script>
+        var start = document.querySelector('.stage .start');
+        var res = document.querySelector('.res');
+        var spanList = document.querySelectorAll('.stage span');
+        // 奖品数组
+        var arr = ['手机', '平板', '电磁炉', '洗衣机', '衣柜', '冰箱', '电脑', '电视'];
+        var newArr = [spanList[0], spanList[1], spanList[2], spanList[5], spanList[8], spanList[7], spanList[6], spanList[3]]; //顺时针顺序
+        // 随机生成1-8
+        // console.log(index);
+        // console.log(arr[index]); // 随机奖品
+
+        // var index
+        var boolean = true;
+        function showStart() {
+            // start.onclick = null // 执行后解绑
+            if (boolean) {
+                var index = Math.floor((Math.random() * 8));
+                for (var i = 0; i < newArr.length; i++) {
+                    newArr[i].className = '';
+                } // 清除样式
+
+                timeIndex = setInterval(function () {
+                    index++;
+
+                    if (index > 7) {
+                        index = 0;
+                        newArr[0].className = 'active';
+                        newArr[7].className = '';
+                    } else if (index === 0) {
+                        newArr[index].className = 'active';
+                        newArr[7].className = '';
+                    } else {
+                        newArr[index].className = 'active';
+                        newArr[index - 1].className = '';
+                    }
+                }, 100);
+                boolean = false;
+                start.style.cursor = 'not-allowed';
+                setTimeout(function () {
+                    clearInterval(timeIndex); // 3s后停止循环动画
+                    res.innerText = '恭喜您抽中了' + arr[index] + '!!!';
+                    boolean = true;
+                    start.style.cursor = 'pointer';
+                    console.log(arr[index]);
+                }, 3000);
+            }
+
+        }
+
+        start.onclick = function () {
+            showStart();
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

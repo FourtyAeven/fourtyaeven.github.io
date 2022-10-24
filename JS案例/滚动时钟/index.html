@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        main{
+            display: flex;
+        }
+        section {
+            display: flex;
+        }
+
+        section div {
+            width: 100px;
+            height: 200px;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+
+
+        }
+
+        section div span {
+            width: 100%;
+            height: 200px;
+            background-color: #fff;
+            font-size: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            border: 5px solid black;
+
+            transition: all 0.3s;
+            /* margin-top: -200px; */
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section class="hh">
+            <div class="h1">
+                <span>0</span>
+            </div>
+            <div class="h2">
+                <span>0</span>
+            </div>
+        </section>
+        <section class="mm">
+            <div class="m1">
+                <span>0</span>
+            </div>
+            <div class="m2">
+                <span>0</span>
+            </div>
+        </section>
+        <section class="ss">
+            <div class="s1">
+                <span>0</span>
+            </div>
+            <div class="s2">
+                <span>0</span>
+            </div>
+        </section>
+    </main>
+    <script>
+        // 盒子向上滑动方法
+        function showNum(element, n) { // element是显示数字的盒子 .s1或.s2 n是新的值
+            var firstNum = element.getElementsByTagName('span')[0];
+            if (firstNum.innerText !== n) {  // 如果第一个数字和需要显示的数字不同
+                var newNum = document.createElement('span')// 创建一个新的元素
+                newNum.innerText = n // 这个新的元素被赋值需要显示的数
+                element.appendChild(newNum) // 把这个新的数追加到显示数字的盒子末尾
+                firstNum.style.marginTop = '-200px' // 调整位置,把第一个盒子移出显示区域
+                // 每隔多少秒删除第一个span元素
+                setTimeout(function () {
+                    element.removeChild(firstNum)
+                    // firstNum.remove()
+                }, 300); // 不能超过,1秒减去一帧的值
+            }
+
+        }
+
+        //定时器 , 每秒都要获取时间
+        setInterval(function () {
+            var now = new Date()
+            var ss = String(now.getSeconds()).padStart(2, '0') //padStart：返回新的字符串，表示用参数字符串从头部（左侧）补全原字符串。
+            // console.log(ss);
+            var hh = String(now.getHours()).padStart(2, '0') // 用0补全两位
+            var mm = String(now.getMinutes()).padStart(2, '0')
+
+            // 获取时间对象元素
+            var ssNum = document.querySelector('.ss')
+            var mmNum = document.querySelector('.mm')
+            var hhNum = document.querySelector('.hh')
+            // 遍历ss,每个盒子显示新值
+            ssNum.querySelectorAll('div').forEach(function (e, i) {
+                showNum(e, ss[i])
+            })
+            mmNum.querySelectorAll('div').forEach(function (e, i) {
+                showNum(e, mm[i])
+            })
+            hhNum.querySelectorAll('div').forEach(function (e, i) {
+                showNum(e, hh[i])
+            })
+        }, 1000);
+    </script>
+</body>
+
+</html>

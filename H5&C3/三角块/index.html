@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cones-inner {
+            position: absolute;
+            display: block;
+        }
+
+        .cones-inner li {
+            position: absolute;
+            list-style: none;
+            top: 0;
+            z-index: 10;
+            border-left: 60px solid transparent;
+            border-right: 60px solid transparent;
+            border-bottom: 103.9px solid rgba(80, 80, 80, .7);
+
+            
+        }
+
+        .cones-inner .left {
+            border-bottom: 100px solid rgba(221, 60, 6, 0.7);
+            transform: rotate3d(1, 1.732, 0, -70.5deg);
+            transform-origin: 75% 50%;
+            
+        }
+
+        .cones-inner .front {
+            border-bottom: 100px solid rgba(192, 228, 9, 0.7);
+            transform: rotate3d(-1, 1.732, 0, 70.5deg);
+            transform-origin: 25% 50%;
+        }
+
+        .cones-inner .right {
+            border-bottom: 100px solid rgba(54, 16, 207, 0.7);
+            transform: rotate3d(1, 0, 0, 70.5deg);
+            transform-origin: 50% 100%;
+        }
+
+        .cones-inner .bottom {
+            border-bottom: 100px solid rgba(3, 142, 29, 0.57);
+        }
+
+        .cones-inner {
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            animation: slowRotate 6s ease-in-out infinite;
+            transform-style: preserve-3d 
+        }
+
+        @keyframes slowRotate {
+            from {
+                transform: rotateY(35deg);
+            }
+
+            to {
+                transform: rotateY(395deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="cones-inner">
+        <li class="front"></li>
+        <li class="right"></li>
+        <li class="left"></li>
+        <li class="bottom"></li>
+    </ul>
+</body>
+
+</html>
