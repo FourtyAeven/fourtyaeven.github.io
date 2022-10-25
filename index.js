@@ -7,6 +7,7 @@ var $demo_a = $('.demo a');
 var $demo_a_web = $('.demo .web');
 var $demo_a_H5C3 = $('.demo .H5C3');
 var $demo_a_JS = $('.demo .JS');
+var $demo_a_Vue = $('.demo .Vue');
 var $nav_span = $('.demo_nav span');
 
 $($nav_li[0]).addClass('active').siblings().removeClass('active');
@@ -84,6 +85,9 @@ $nav_span.click(function () {
     }
     if ($(this).text() === 'JS案例') {
         $demo_a_JS.show().siblings().hide();
+    }
+    if ($(this).text() === 'Vue') {
+        $demo_a_Vue.show().siblings().hide();
     }
 });
 
